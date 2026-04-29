@@ -17,6 +17,9 @@ dev = [
   "pytest",
 ]
 
+[tool.setuptools]
+packages = ["simulator"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
