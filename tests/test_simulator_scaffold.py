@@ -60,3 +60,12 @@ def test_h_alpha_components_sorted_nonempty():
 def test_report_generation_runs():
     subprocess.run([sys.executable, "scripts/generate_reports.py"], check=True)
     assert Path("reports/HYDROGEN_BRIDGE_V1_REPORT.md").exists()
+
+
+def test_report_contains_markdown_tables():
+    subprocess.run([sys.executable, "scripts/generate_reports.py"], check=True)
+    report = Path("reports/HYDROGEN_BRIDGE_V1_REPORT.md").read_text(encoding="utf-8")
+    assert "| n | K |" in report
+    assert "| series | transition |" in report
+    assert "| K | target_x | expectation_x |" in report
+    assert "| label |" in report
