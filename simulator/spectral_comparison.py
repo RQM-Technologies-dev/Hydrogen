@@ -1,41 +1,70 @@
+import csv
+from pathlib import Path
+
 from simulator.hydrogen_shell_simulator import transition_wavelength_nm
 
-REFERENCE_WAVELENGTH_NM = {
-    (2, 1): 121.567,
-    (3, 1): 102.572,
-    (4, 1): 97.254,
-    (5, 1): 94.974,
-    (6, 1): 93.780,
-    (3, 2): 656.281,
-    (4, 2): 486.133,
-    (5, 2): 434.047,
-    (6, 2): 410.174,
-    (7, 2): 397.007,
-    (4, 3): 1875.627,
-    (5, 3): 1281.807,
-    (6, 3): 1093.807,
-    (7, 3): 1004.938,
-    (8, 3): 954.621,
+REFERENCE_COLUMNS = {
+    "series",
+    "transition",
+    "n_i",
+    "n_f",
+    "wavelength_nm",
+    "medium",
+    "source",
+    "source_version_or_access_date",
+    "notes",
 }
+REFERENCE_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "hydrogen_reference_lines.csv"
+
+
+def load_reference_wavelengths(path: Path = REFERENCE_DATA_PATH) -> dict[tuple[int, int], dict]:
+    with path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames is None or not REFERENCE_COLUMNS.issubset(set(reader.fieldnames)):
+            missing = REFERENCE_COLUMNS - set(reader.fieldnames or [])
+            raise ValueError(f"Missing required reference columns: {sorted(missing)}")
+
+        references: dict[tuple[int, int], dict] = {}
+        for row in reader:
+            n_i = int(row["n_i"])
+            n_f = int(row["n_f"])
+            references[(n_i, n_f)] = {
+                "wavelength_nm": float(row["wavelength_nm"]),
+                "medium": row["medium"],
+                "source": row["source"],
+                "source_version_or_access_date": row["source_version_or_access_date"],
+                "notes": row["notes"],
+                "series": row["series"],
+                "transition": row["transition"],
+            }
+    return references
 
 
 def _series(n_f: int, n_max: int, series_name: str) -> list[dict]:
+    refs = load_reference_wavelengths()
     rows = []
     for n_i in range(n_f + 1, n_max + 1):
         predicted_nm = transition_wavelength_nm(n_i, n_f)
-        reference_nm = REFERENCE_WAVELENGTH_NM.get((n_i, n_f))
+        ref = refs.get((n_i, n_f))
+        reference_nm = None if ref is None else ref["wavelength_nm"]
         if reference_nm is None:
             error_nm = None
             relative_error_ppm = None
+            medium = None
+            source = None
         else:
             error_nm = predicted_nm - reference_nm
             relative_error_ppm = (error_nm / reference_nm) * 1_000_000
+            medium = ref["medium"]
+            source = ref["source"]
         rows.append(
             {
                 "series": series_name,
                 "transition": f"{n_i}->{n_f}",
                 "predicted_nm": predicted_nm,
                 "reference_nm": reference_nm,
+                "medium": medium,
+                "source": source,
                 "error_nm": error_nm,
                 "relative_error_ppm": relative_error_ppm,
             }

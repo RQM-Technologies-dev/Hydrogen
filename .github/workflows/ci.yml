@@ -37,6 +37,9 @@ jobs:
       - name: Generate reports
         run: python scripts/generate_reports.py
 
+      - name: Generate plots
+        run: python scripts/generate_plots.py
+
       - name: Upload reports artifact
         uses: actions/upload-artifact@v4
         with:
@@ -44,3 +47,4 @@ jobs:
           path: |
             reports/*.csv
             reports/HYDROGEN_BRIDGE_V1_REPORT.md
+            reports/plots/*.png

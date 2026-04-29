@@ -1,0 +1,18 @@
+# Claims Matrix
+
+| Claim | Repo status | Implemented where | Validated by | Calibration used? | Native RQM/QSG? | Current limitation | Next work |
+|---|---|---|---|---|---|---|---|
+| Hydrogen shell energies E_n = -Ry/n² | Implemented | simulator/hydrogen_shell_simulator.py | tests + generated shell table | Yes (Ry) | Partly (operator form native, Ry calibrated) | No first-principles Ry derivation | Explore constrained constant derivation program |
+| S³ shell-number operator Nhat = sqrt(-Delta_S3 + 1) | Implemented (formal + code mapping) | notes/hydrogen_bridge_v1.md, simulator/hydrogen_shell_simulator.py | angular count and shell outputs | No | Yes | Finite computational representation | Add richer operator-level numerics |
+| Shell-locking condition Nhat = s²/2 | Implemented | simulator/shell_locking_test.py, notes | shell-locking report rows | Model parameters tuned | Yes | Numerical localization only | Robustness/uncertainty scans |
+| Degeneracy n² | Implemented | simulator/hydrogen_shell_simulator.py | tests angular state counts | No | Yes | Before spin/fine corrections | Couple spin extensions |
+| Angular state counting ell=0..n-1, m=-ell..ell | Implemented | simulator/hydrogen_shell_simulator.py, notes/angular_projection_s3_to_s2.md | tests + note identity sum(2ell+1)=n² | No | Bridge mapping native | Not full Coulomb eigenfunction derivation | Derive stronger operator intertwiner |
+| Dipole selection channels | Implemented | simulator/hydrogen_shell_simulator.py | channel tests | Uses standard rules | No (standard benchmark physics) | Selection rules imported as benchmark | Native transition operator program |
+| Lyman/Balmer/Paschen wavelength comparisons | Implemented | simulator/spectral_comparison.py + data/hydrogen_reference_lines.csv | tests + series report table | Yes (reference dataset) | No (benchmark layer) | Dataset currently legacy benchmark values | Replace with cited authoritative source |
+| Numerical shell-locking localization | Implemented | simulator/shell_locking_test.py | tests + shell_locking_validation.csv | Parameters set in model | Yes | Grid/sector discretization limits | Convergence study |
+| H-alpha fine-structure components | Implemented | simulator/fine_structure.py | tests + h_alpha_fine_structure.csv | Yes (standard correction) | No (benchmark layer) | No native fine-structure derivation | Native relativistic/spin sector |
+| Native derivation of Rydberg constant | Not implemented | N/A | N/A | N/A | No | Out of scope for v1 | Future research item |
+| Heavier element extension | Out of scope | N/A | N/A | N/A | No | Hydrogen-only v1 scope | Multi-electron extension plan |
+| Native fine-structure derivation | Not implemented | N/A | N/A | N/A | No | Uses standard benchmark formula | Native derivation program |
+| Cited reference dataset | Partially implemented | data/hydrogen_reference_lines.csv | schema tests | Yes | No | Legacy benchmark values pending authoritative replacement | Pull cited NIST/ASD dataset with explicit medium/version |
+| Plot/report generation | Implemented | scripts/generate_reports.py, scripts/generate_plots.py | tests + generated artifacts | No | Mixed | Plot generation depends on matplotlib availability | Extend diagnostics + CI artifact review |
