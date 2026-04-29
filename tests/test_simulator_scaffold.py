@@ -1,48 +1,62 @@
-import math
+from pathlib import Path
+import subprocess
+import sys
 
-from simulator.hydrogen_shell_simulator import shell_table, angular_states, transitions
-from simulator.spectral_comparison import lyman_series, balmer_series, paschen_series
+from simulator.fine_structure import h_alpha_components
+from simulator.hydrogen_shell_simulator import (
+    RYDBERG_EV,
+    allowed_dipole_channels,
+    angular_states,
+    shell_table,
+)
 from simulator.shell_locking_test import run_shell_locking_test
-from simulator.fine_structure import energy_fine_structure, h_alpha_components
+from simulator.spectral_comparison import balmer_series
 
 
-def test_shell_table_basic():
-    rows = shell_table(3)
-    assert len(rows) == 3
-    assert rows[1]["n"] == 2
-    assert rows[1]["degeneracy"] == 4
+def test_shell_table_values():
+    rows = shell_table(5)
+    for row in rows:
+        n = row["n"]
+        assert row["K"] == n - 1
+        assert row["s2"] == 2 * n
+        assert row["degeneracy"] == n**2
+        assert abs(row["energy_eV"] - (-RYDBERG_EV / (n**2))) < 1e-12
 
 
 def test_angular_states_count():
-    states = angular_states(3)
-    assert len(states) == 9
-    assert (2, -2) in states and (2, 2) in states
+    for n in range(1, 7):
+        assert len(angular_states(n)) == n**2
 
 
-def test_transitions_nonempty():
-    rows = transitions(3)
-    assert any(r["n_i"] == 3 and r["n_f"] == 2 for r in rows)
+def test_allowed_dipole_channels_3_to_2():
+    channels = allowed_dipole_channels(3, 2)
+    tuples = {(c["ell_i"], c["ell_f"]) for c in channels}
+    assert (0, 1) in tuples
+    assert (1, 0) in tuples
+    assert (2, 1) in tuples
+    assert (0, 0) not in tuples
+    assert (2, 0) not in tuples
 
 
-def test_series_tables_populate():
-    assert len(lyman_series()) > 0
-    assert len(balmer_series()) > 0
-    assert len(paschen_series()) > 0
+def test_balmer_alpha_near_656nm():
+    rows = balmer_series(n_max=3)
+    assert abs(rows[0]["predicted_nm"] - 656.0) < 1.0
 
 
-def test_shell_locking_runs():
-    rows = run_shell_locking_test(K_max=2, grid_points=120)
-    assert len(rows) == 3
-    assert all("numerical" in r for r in rows)
+def test_shell_locking_expectation_close():
+    rows = run_shell_locking_test(K_max=3)
+    for row in rows:
+        assert abs(row["error"]) < 0.1
 
 
-def test_energy_fine_structure_runs():
-    e = energy_fine_structure(n=2, j=0.5)
-    assert e < 0
-
-
-def test_h_alpha_components():
+def test_h_alpha_components_sorted_nonempty():
     rows = h_alpha_components()
-    assert len(rows) == 6
-    assert all(r["lam"] > 0 for r in rows)
-    assert math.isfinite(rows[0]["delta_E"])
+    assert rows
+    wavelengths = [r["wavelength_nm"] for r in rows]
+    assert wavelengths == sorted(wavelengths)
+    assert all(650 < w < 660 for w in wavelengths)
+
+
+def test_report_generation_runs():
+    subprocess.run([sys.executable, "scripts/generate_reports.py"], check=True)
+    assert Path("reports/HYDROGEN_BRIDGE_V1_REPORT.md").exists()

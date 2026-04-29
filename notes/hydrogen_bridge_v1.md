@@ -1,91 +1,78 @@
-# Hydrogen as an S³ Spectral Shell: A Quaternionic Shell-Locking Bridge for RQM/QSG
+# Hydrogen Bridge v1 Technical Note
 
-## Abstract
-This note defines a falsifiable Hydrogen Bridge v1 linking an RQM/QSG shell picture to standard hydrogen observables. The bridge is built around one operator,
-\(\hat N = \sqrt{-\Delta_{S^3}+1}\), one lock relation, \(\hat N=s^2/2\), and one Coulomb-energy operator, \(H_C=-\mathrm{Ry}/\hat N^2\). With these ingredients, the framework reproduces principal-shell energies, \(n^2\) degeneracy, angular-state decomposition, and electric-dipole selection rules. A minimal simulator package provides benchmark tables and numerical shell-locking checks.
+## 1. Abstract
+Hydrogen Bridge v1 is a calibrated and falsifiable bridge between the RQM/QSG geometry on
+\(M=S^3\times\mathbb R_s\) and observed hydrogen spectral architecture. The v1 package reproduces
+shell energies, shell degeneracy, angular state counting, dipole selection rules, shell-locking
+behavior, and a leading fine-structure benchmark for H-alpha.
 
-## 1. State space
-We take
-\[
-M=S^3\times\mathbb R_s,
-\]
-where \(S^3\) carries compact harmonic structure and \(s\in\mathbb R\) is the shell coordinate used for locking.
+## 2. Scope and honesty statement
+- The Rydberg energy \(\mathrm{Ry}\) is used as a **calibration constant** in v1.
+- This is a validation of bridge architecture and numerical behavior, not a full replacement
+  derivation of hydrogen from first principles.
+- The scope is hydrogen only.
 
-## 2. \(S^3\) harmonic spectrum
-For \(K=0,1,2,\dots\), the spherical harmonics on \(S^3\) satisfy
-\[
--\Delta_{S^3}Y_K=K(K+2)Y_K.
-\]
-Hence \(-\Delta_{S^3}+1\) has eigenvalues \((K+1)^2\).
+## 3. State space: \(M=S^3\times\mathbb R_s\)
+The bridge uses compact angular-spectral structure from \(S^3\) and a real shell coordinate \(s\)
+for shell locking.
 
-## 3. Shell-number operator
-Define
-\[
-\hat N=\sqrt{-\Delta_{S^3}+1}.
-\]
-On the \(K\)-eigenspace, \(\hat N\) has eigenvalue \(K+1\equiv n\), identifying the principal quantum number.
+## 4. \(S^3\) harmonic spectrum
+\[-\Delta_{S^3}Y_K = K(K+2)Y_K,\qquad K=0,1,2,\ldots\]
+So \(-\Delta_{S^3}+1\) has eigenvalue \((K+1)^2\).
 
-## 4. Shell-locking condition
-Impose
-\[
-\hat N=\frac{s^2}{2}.
-\]
-At the expectation-value level in sector \(K\), this predicts
-\[
-\left\langle\frac{s^2}{2}\right\rangle\approx K+1.
-\]
-A reduced one-dimensional locking Hamiltonian is used for falsification:
-\[
-H_K=-\eta\frac{d^2}{ds^2}+\beta\sin^2\!\left(\frac{\pi s^2}{2}\right)+\gamma\left(K+1-\frac{s^2}{2}\right)^2.
-\]
+## 5. Shifted shell-number operator \(\hat N\)
+\[\hat N = \sqrt{-\Delta_{S^3}+1},\qquad \hat N Y_K=(K+1)Y_K.\]
+Hence principal shell number is \(n=K+1\).
 
-## 5. Hydrogen energy operator
-Define
-\[
-H_C=-\frac{\mathrm{Ry}}{\hat N^2}.
-\]
-Thus on shell \(n\):
-\[
-E_n=-\frac{\mathrm{Ry}}{n^2},
-\]
-matching the gross hydrogen spectrum.
+## 6. Shell-locking condition \(\hat N=s^2/2\)
+\[\hat N=\frac{s^2}{2}\Rightarrow n=K+1=\frac{s^2}{2}.\]
+This is checked numerically via sector-wise finite-difference ground states.
 
-## 6. Degeneracy
-The \(S^3\) harmonic-space dimension is
-\[
-\dim\mathcal H_K(S^3)=(K+1)^2=n^2,
-\]
-which reproduces hydrogen's \(n^2\) degeneracy before spin/fine corrections.
+## 7. Coulomb action relation
+\[E(J)=-\frac{\mu\kappa^2}{2J^2},\qquad J(s)=\hbar\frac{s^2}{2}.\]
+Then
+\[E(s)=-\frac{4\mathrm{Ry}}{s^4},\]
+and at \(s^2=2n\),
+\[E_n=-\frac{\mathrm{Ry}}{n^2}.\]
 
-## 7. Angular projection
-The shell space projects as
-\[
-\mathcal H_{n-1}(S^3)\rightarrow\bigoplus_{\ell=0}^{n-1}\mathcal H_\ell(S^2),
-\]
-with magnetic sublevels \(m=-\ell,\dots,\ell\).
+## 8. Native \(S^3\) spectral energy operator
+\[H_C=-\frac{\mathrm{Ry}}{-\Delta_{S^3}+1}=-\frac{\mathrm{Ry}}{\hat N^2}.\]
+Therefore shell energies are \(E_n=-\mathrm{Ry}/n^2\).
 
-## 8. Transition rules
-Electric-dipole channels use the standard rules:
-\[
-\Delta \ell=\pm 1,\qquad \Delta m=0,\pm1.
-\]
-Wavelengths are computed from
-\[
-\lambda=\frac{hc}{\mathrm{Ry}(1/n_f^2-1/n_i^2)}\quad (n_i>n_f).
-\]
+## 9. Degeneracy
+\[\dim\mathcal H_K(S^3)=(K+1)^2=n^2.\]
+This reproduces the hydrogen shell degeneracy before spin/fine corrections.
 
-## 9. Fine structure as next correction
-Next-order relativistic splitting is included via
-\[
-E_{n,j}=-\frac{\mathrm{Ry}}{n^2}+\frac{m_ec^2\alpha^4}{2n^3}\left[\frac{3}{4n}-\frac{1}{j+\frac12}\right].
-\]
-Hydrogen Bridge v1 reports fine-structure components for H-\(\alpha\) (\(3\to2\)) as a spectroscopy benchmark.
+## 10. Angular projection into \((\ell,m)\) states
+\[\mathcal H_{n-1}(S^3)\to\bigoplus_{\ell=0}^{n-1}\mathcal H_\ell(S^2),\]
+with \(m=-\ell,\ldots,\ell\). This recovers \(\ell=0,\ldots,n-1\).
 
-## 10. Falsifiability checklist
-A v1 implementation is considered successful only if it reproducibly outputs:
-1. Shell table \((n,K,s^2,s,n^2,E_n)\).
-2. Angular states \((\ell,m)\) per shell.
-3. Dipole-allowed transition channels with wavelengths.
-4. Lyman/Balmer/Paschen comparison tables.
-5. Numerical locking results with \(\langle s^2/2\rangle\approx K+1\) across \(K\)-sectors.
-6. Fine-structure decomposition for H-\(\alpha\).
+## 11. Electric-dipole transition rules
+\[\Delta\ell=\pm1,\qquad \Delta m=0,\pm1.\]
+Bridge transition channels are explicitly enumerated in the simulator.
+
+## 12. Fine-structure benchmark
+\[E_{n,j}=-\frac{\mathrm{Ry}}{n^2}+\frac{m_ec^2\alpha^4}{2n^3}\left[\frac{3}{4n}-\frac{1}{j+1/2}\right].\]
+The H-alpha multiplet is generated by allowed \((\Delta\ell,\Delta j)\) channels and reported in nm.
+
+## 13. Numerical shell-locking validation
+For each \(K\), v1 solves
+\[H_K=-\eta\frac{d^2}{ds^2}+V_K(s),\]
+\[V_K(s)=\beta\sin^2\!\left(\pi s^2/2\right)+\gamma\left(K+1-s^2/2\right)^2,\]
+with finite differences and `numpy.linalg.eigh`. The primary diagnostic is
+\(\langle s^2/2\rangle\approx K+1\) with small sector errors.
+
+## 14. Falsifiability checklist
+Hydrogen Bridge v1 is considered successful only if reproducible outputs include:
+1. shell table \((n,K,s^2,s,n^2,E_n)\),
+2. angular-state counts \(n^2\),
+3. dipole-allowed angular channels,
+4. Lyman/Balmer/Paschen comparison tables,
+5. finite-difference shell-locking rows with small locking error,
+6. H-alpha fine-structure components from selection rules.
+
+## 15. Limitations and next work
+- v1 is calibrated on \(\mathrm{Ry}\); it does not claim independent determination of the Rydberg constant.
+- Present scope excludes heavier elements.
+- Next steps: stronger uncertainty quantification, spin-coupled extensions, and richer comparison
+  tables while preserving the same falsifiable bridge architecture.
