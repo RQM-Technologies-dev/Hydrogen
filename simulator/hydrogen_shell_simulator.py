@@ -16,5 +16,13 @@ def angular_states(n: int):
 
 
 def transitions(n_max: int):
-    """Return all allowed dipole transitions (n_i → n_f, Δℓ = ±1) with wavelength λ (m)."""
+    """
+    Return all allowed dipole transitions for principal quantum numbers up to n_max.
+
+    Each entry is a dict with keys:
+        n_i  (int)   : initial principal quantum number
+        n_f  (int)   : final principal quantum number
+        dl   (int)   : change in angular momentum (±1)
+        lam  (float) : wavelength λ in metres
+    """
     raise NotImplementedError
