@@ -29,6 +29,7 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 pytest
 python scripts/generate_reports.py
+python scripts/generate_plots.py
 ```
 
 ## What it generates
@@ -51,3 +52,16 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 
 - `notes/hydrogen_bridge_v1.md` — main Hydrogen Bridge v1 technical note.
 - `notes/appendix_coulomb_action_to_s3_operator.md` — expanded derivation from Coulomb action to the native S³ spectral hydrogen operator.
+
+
+## Reviewer map
+
+- `notes/hydrogen_bridge_v1.md`
+- `notes/appendix_coulomb_action_to_s3_operator.md`
+- `notes/angular_projection_s3_to_s2.md`
+- `notes/layer_separation.md`
+- `docs/claims_matrix.md`
+
+## Plot generation
+
+Run `python scripts/generate_plots.py` to generate deterministic visual diagnostics under `reports/plots/`.

@@ -73,6 +73,8 @@ Hydrogen Bridge v1 is considered successful only if reproducible outputs include
 5. finite-difference shell-locking rows with small locking error,
 6. H-alpha fine-structure components from selection rules.
 
+See also `notes/layer_separation.md` for benchmark-vs-native scope boundaries.
+
 ## 15. Limitations and next work
 - v1 is calibrated on \(\mathrm{Ry}\); it does not claim independent determination of the Rydberg constant.
 - Present scope excludes heavier elements.
