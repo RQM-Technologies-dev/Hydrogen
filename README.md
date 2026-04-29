@@ -33,3 +33,5 @@ Running `python scripts/generate_reports.py` creates:
 - `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
 
 These artifacts provide a benchmark against hydrogen spectral architecture for Hydrogen Bridge v1.
+
+Generated artifacts under `reports/` are produced locally and may not be committed in every branch or clone.

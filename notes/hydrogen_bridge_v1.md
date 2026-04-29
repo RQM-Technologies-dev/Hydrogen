@@ -74,5 +74,6 @@ Hydrogen Bridge v1 is considered successful only if reproducible outputs include
 ## 15. Limitations and next work
 - v1 is calibrated on \(\mathrm{Ry}\); it does not claim independent determination of the Rydberg constant.
 - Present scope excludes heavier elements.
+- Reference wavelengths are hardcoded benchmark values for software validation; future work should replace them with a cited, versioned reference dataset and consistently distinguish air vs vacuum wavelengths.
 - Next steps: stronger uncertainty quantification, spin-coupled extensions, and richer comparison
   tables while preserving the same falsifiable bridge architecture.
