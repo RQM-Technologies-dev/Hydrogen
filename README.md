@@ -1,3 +1,5 @@
+[![Hydrogen Bridge v1 CI](https://github.com/RQM-Technologies-dev/Hydrogen/actions/workflows/ci.yml/badge.svg)](https://github.com/RQM-Technologies-dev/Hydrogen/actions/workflows/ci.yml)
+
 # Hydrogen Bridge v1
 
 This repository implements a **calibrated bridge** for hydrogen on the RQM/QSG state space
@@ -10,6 +12,14 @@ Core equations used in the package:
 - \(\hat N = \sqrt{-\Delta_{S^3} + 1}\)
 - \(\hat N = s^2/2\)
 - \(H_C = -\mathrm{Ry}/\hat N^2\)
+
+## Continuous Integration
+
+The Hydrogen Bridge v1 CI workflow runs tests and regenerates reports on pushes to `main` and pull requests targeting `main`.
+
+Each CI run uploads generated report files as workflow artifacts for inspection and downstream use.
+
+Outputs under `reports/` are generated artifacts and may not be committed in every branch or clone.
 
 ## Quickstart
 
