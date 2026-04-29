@@ -39,6 +39,8 @@ and at \(s^2=2n\),
 \[H_C=-\frac{\mathrm{Ry}}{-\Delta_{S^3}+1}=-\frac{\mathrm{Ry}}{\hat N^2}.\]
 Therefore shell energies are \(E_n=-\mathrm{Ry}/n^2\).
 
+For the expanded derivation from Coulomb action to the native \(S^3\) spectral energy operator, see [Appendix A — From Coulomb Action to the S³ Spectral Hydrogen Operator](appendix_coulomb_action_to_s3_operator.md).
+
 ## 9. Degeneracy
 \[\dim\mathcal H_K(S^3)=(K+1)^2=n^2.\]
 This reproduces the hydrogen shell degeneracy before spin/fine corrections.

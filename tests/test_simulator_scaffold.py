@@ -69,3 +69,12 @@ def test_report_contains_markdown_tables():
     assert "| series | transition |" in report
     assert "| K | target_x | expectation_x |" in report
     assert "| label |" in report
+
+
+def test_appendix_doc_exists_and_contains_core_terms():
+    appendix = Path("notes/appendix_coulomb_action_to_s3_operator.md")
+    assert appendix.exists()
+    content = appendix.read_text(encoding="utf-8")
+    assert "H_C" in content
+    assert "-\\Delta_{S^3}+1" in content
+    assert "calibration constant" in content

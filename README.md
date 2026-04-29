@@ -45,3 +45,9 @@ Running `python scripts/generate_reports.py` creates:
 These artifacts provide a benchmark against hydrogen spectral architecture for Hydrogen Bridge v1.
 
 Generated artifacts under `reports/` are produced locally and may not be committed in every branch or clone.
+
+
+## Technical notes
+
+- `notes/hydrogen_bridge_v1.md` — main Hydrogen Bridge v1 technical note.
+- `notes/appendix_coulomb_action_to_s3_operator.md` — expanded derivation from Coulomb action to the native S³ spectral hydrogen operator.
