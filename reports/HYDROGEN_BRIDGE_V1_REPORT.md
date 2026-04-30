@@ -7,7 +7,7 @@ Standard benchmark formulas/data are separated from native RQM/QSG bridge struct
 
 ## Reference wavelength provenance
 Reference lines are loaded from `data/hydrogen_reference_lines.csv` with medium metadata (air/vacuum) and source fields.
-Current dataset values are legacy benchmark rows pending replacement by a fully cited authoritative spectroscopy dataset.
+Current dataset values are labeled legacy benchmark rows pending authoritative verification; see `data/hydrogen_reference_lines_provenance.md` for manual NIST ASD replacement steps.
 
 ## Claims matrix
 Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
@@ -39,21 +39,21 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 ## 3. Lyman/Balmer/Paschen comparison table
 | series | transition | predicted_nm | reference_nm | medium | source | error_nm | relative_error_ppm |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Lyman | 2->1 | 121.502273 | 121.567000 | vacuum | Hydrogen Bridge v1 legacy benchmark | -0.064727 | -532.435521 |
-| Lyman | 3->1 | 102.517543 | 102.572000 | vacuum | Hydrogen Bridge v1 legacy benchmark | -0.054457 | -530.913012 |
-| Lyman | 4->1 | 97.201819 | 97.254000 | vacuum | Hydrogen Bridge v1 legacy benchmark | -0.052181 | -536.546273 |
-| Lyman | 5->1 | 94.923651 | 94.974000 | vacuum | Hydrogen Bridge v1 legacy benchmark | -0.050349 | -530.133486 |
-| Lyman | 6->1 | 93.730325 | 93.780000 | vacuum | Hydrogen Bridge v1 legacy benchmark | -0.049675 | -529.695001 |
-| Balmer | 3->2 | 656.112276 | 656.281000 | air | Hydrogen Bridge v1 legacy benchmark | -0.168724 | -257.090455 |
-| Balmer | 4->2 | 486.009094 | 486.133000 | air | Hydrogen Bridge v1 legacy benchmark | -0.123906 | -254.881598 |
-| Balmer | 5->2 | 433.936691 | 434.047000 | air | Hydrogen Bridge v1 legacy benchmark | -0.110309 | -254.141248 |
-| Balmer | 6->2 | 410.070173 | 410.174000 | air | Hydrogen Bridge v1 legacy benchmark | -0.103827 | -253.129740 |
-| Balmer | 7->2 | 396.907426 | 397.007000 | air | Hydrogen Bridge v1 legacy benchmark | -0.099574 | -250.810500 |
-| Paschen | 4->3 | 1874.606504 | 1875.627000 | air | Hydrogen Bridge v1 legacy benchmark | -1.020496 | -544.082563 |
-| Paschen | 5->3 | 1281.469290 | 1281.807000 | air | Hydrogen Bridge v1 legacy benchmark | -0.337710 | -263.464093 |
-| Paschen | 6->3 | 1093.520461 | 1093.807000 | air | Hydrogen Bridge v1 legacy benchmark | -0.286539 | -261.965137 |
-| Paschen | 7->3 | 1004.671923 | 1004.938000 | air | Hydrogen Bridge v1 legacy benchmark | -0.266077 | -264.769302 |
-| Paschen | 8->3 | 954.345129 | 954.621000 | air | Hydrogen Bridge v1 legacy benchmark | -0.275871 | -288.984490 |
+| Lyman | 2->1 | 121.502273 | 121.567000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.064727 | -532.435521 |
+| Lyman | 3->1 | 102.517543 | 102.572000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.054457 | -530.913012 |
+| Lyman | 4->1 | 97.201819 | 97.254000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.052181 | -536.546273 |
+| Lyman | 5->1 | 94.923651 | 94.974000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.050349 | -530.133486 |
+| Lyman | 6->1 | 93.730325 | 93.780000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.049675 | -529.695001 |
+| Balmer | 3->2 | 656.112276 | 656.281000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.168724 | -257.090455 |
+| Balmer | 4->2 | 486.009094 | 486.133000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.123906 | -254.881598 |
+| Balmer | 5->2 | 433.936691 | 434.047000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.110309 | -254.141248 |
+| Balmer | 6->2 | 410.070173 | 410.174000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.103827 | -253.129740 |
+| Balmer | 7->2 | 396.907426 | 397.007000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.099574 | -250.810500 |
+| Paschen | 4->3 | 1874.606504 | 1875.627000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -1.020496 | -544.082563 |
+| Paschen | 5->3 | 1281.469290 | 1281.807000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.337710 | -263.464093 |
+| Paschen | 6->3 | 1093.520461 | 1093.807000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.286539 | -261.965137 |
+| Paschen | 7->3 | 1004.671923 | 1004.938000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.266077 | -264.769302 |
+| Paschen | 8->3 | 954.345129 | 954.621000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.275871 | -288.984490 |
 
 ## 4. Shell-locking validation table
 | K | target_x | expectation_x | error | variance_x | eigenvalue_0 |
@@ -76,10 +76,30 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | 3d_3/2 -> 2p_3/2 | 1.889684 | 656.110675 |
 | 3s_1/2 -> 2p_3/2 | 1.889671 | 656.115334 |
 
-## 6. Generated plots
-Plots not found. Run `python scripts/generate_plots.py` to generate `reports/plots/*.png`.
 
-## 7. Limitations
+## 6. Hopf flux projection diagnostics
+These diagnostics test the projected-flux scaling layer only; they do not constitute a full derivation of electromagnetism.
+| count | mean_norm | max_norm_error | mean_x | mean_y | mean_z | second_moment_x | second_moment_y | second_moment_z |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 10000 | 1.000000 | 0.000000 | 0.003446 | -0.004401 | -0.000200 | 0.335296 | 0.335312 | 0.329392 |
+
+- Field log-log slope: -2.000000000000
+- Potential log-log slope: -1.000000000000
+- Max flux reconstruction error: 0.000000000000e+00
+
+| r | area | field | potential | reconstructed_flux |
+| --- | --- | --- | --- | --- |
+| 1.000000 | 12.566371 | 0.079577 | -0.079577 | 1.000000 |
+| 2.000000 | 50.265482 | 0.019894 | -0.039789 | 1.000000 |
+| 3.000000 | 113.097336 | 0.008842 | -0.026526 | 1.000000 |
+| 4.000000 | 201.061930 | 0.004974 | -0.019894 | 1.000000 |
+| 5.000000 | 314.159265 | 0.003183 | -0.015915 | 1.000000 |
+| 8.000000 | 804.247719 | 0.001243 | -0.009947 | 1.000000 |
+| 13.000000 | 2123.716634 | 0.000471 | -0.006121 | 1.000000 |
+## 7. Generated plots
+- `shell_locking_potential_K0_K5.png`
+
+## 8. Limitations
 - This implementation is a calibrated bridge and does not claim a first-principles derivation of the Rydberg constant.
 - Scope remains hydrogen; heavier elements are out of scope for v1.
 - Fine structure is benchmarked with a standard correction formula; native derivation is future work.

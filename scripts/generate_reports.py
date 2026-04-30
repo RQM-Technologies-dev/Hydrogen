@@ -73,7 +73,7 @@ def main() -> None:
         "",
         "## Reference wavelength provenance",
         f"Reference lines are loaded from `{REFERENCE_DATA_PATH.relative_to(ROOT)}` with medium metadata (air/vacuum) and source fields.",
-        "Current dataset values are legacy benchmark rows pending replacement by a fully cited authoritative spectroscopy dataset.",
+        "Current dataset values are labeled legacy benchmark rows pending authoritative verification; see `data/hydrogen_reference_lines_provenance.md` for manual NIST ASD replacement steps.",
         "",
         "## Claims matrix",
         "Status and honesty boundaries are tracked in `docs/claims_matrix.md`.",

@@ -63,6 +63,8 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 - `notes/hydrogen_bridge_v1.md`
 - `notes/appendix_coulomb_action_to_s3_operator.md`
 - `notes/angular_projection_s3_to_s2.md`
+- `docs/math_references.md`
+- `data/hydrogen_reference_lines_provenance.md`
 - `notes/layer_separation.md`
 - `notes/appendix_b_closure_geometry_inverse_square_action.md`
 - `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`

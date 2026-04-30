@@ -11,7 +11,9 @@ REFERENCE_COLUMNS = {
     "wavelength_nm",
     "medium",
     "source",
-    "source_version_or_access_date",
+    "source_url",
+    "source_access_date",
+    "source_table_or_query",
     "notes",
 }
 REFERENCE_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "hydrogen_reference_lines.csv"
@@ -32,7 +34,9 @@ def load_reference_wavelengths(path: Path = REFERENCE_DATA_PATH) -> dict[tuple[i
                 "wavelength_nm": float(row["wavelength_nm"]),
                 "medium": row["medium"],
                 "source": row["source"],
-                "source_version_or_access_date": row["source_version_or_access_date"],
+                "source_url": row["source_url"],
+                "source_access_date": row["source_access_date"],
+                "source_table_or_query": row["source_table_or_query"],
                 "notes": row["notes"],
                 "series": row["series"],
                 "transition": row["transition"],
