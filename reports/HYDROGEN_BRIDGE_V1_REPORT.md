@@ -97,7 +97,11 @@ These diagnostics test the projected-flux scaling layer only; they do not consti
 | 8.000000 | 804.247719 | 0.001243 | -0.009947 | 1.000000 |
 | 13.000000 | 2123.716634 | 0.000471 | -0.006121 | 1.000000 |
 ## 7. Generated plots
+- `hydrogen_energy_ladder.png`
+- `shell_locking_error.png`
+- `shell_locking_expectation_vs_target.png`
 - `shell_locking_potential_K0_K5.png`
+- `transition_wavelength_comparison.png`
 
 ## 8. Limitations
 - This implementation is a calibrated bridge and does not claim a first-principles derivation of the Rydberg constant.

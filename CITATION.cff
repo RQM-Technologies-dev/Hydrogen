@@ -1,0 +1,6 @@
+cff-version: 1.2.0
+title: "Hydrogen Bridge v1"
+message: "If you use this repository, please cite it as Hydrogen Bridge v1 by RQM Technologies LLC."
+type: software
+authors:
+  - name: "RQM Technologies LLC"
