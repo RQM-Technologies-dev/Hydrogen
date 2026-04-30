@@ -57,3 +57,5 @@ This file supports the public anchor claim:
 ## Citation quality note
 
 This file is intentionally conservative and does not claim page-level citations. It provides standard source anchors for public review while keeping the repo’s calibrated-bridge honesty boundary explicit.
+
+Exact page-level citations remain a future bibliographic cleanup item.

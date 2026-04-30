@@ -7,6 +7,18 @@ This repository implements a **calibrated bridge** for hydrogen on the RQM/QSG s
 degeneracy, angular states, transition channels, numerical validation of shell locking,
 and a fine-structure H-alpha benchmark.
 
+## Central public claim
+
+Hydrogen bound-state shell architecture is naturally represented by scalar harmonics on S³.
+
+- \(-\Delta_{S^3}Y_K = K(K+2)Y_K\)
+- \(\hat N = \sqrt{-\Delta_{S^3}+1}\)
+- \(\hat N\,Y_K = (K+1)Y_K\)
+- \(n = K+1\)
+- \(\dim\mathcal H_K(S^3)=(K+1)^2=n^2\)
+- \(H_C = -\mathrm{Ry}/\hat N^2\)
+- \(E_n=-\mathrm{Ry}/n^2\)
+
 Core equations used in the package:
 
 - \(\hat N = \sqrt{-\Delta_{S^3} + 1}\)
@@ -61,6 +73,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 ## Reviewer map
 
 - `notes/hydrogen_bridge_v1.md`
+- `notes/s3_scalar_harmonic_shell_architecture.md` — public-facing anchor note for hydrogen shell architecture as scalar harmonics on S³.
 - `notes/appendix_coulomb_action_to_s3_operator.md`
 - `notes/angular_projection_s3_to_s2.md`
 - `docs/math_references.md`
