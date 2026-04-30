@@ -7,9 +7,29 @@ This repository implements a **calibrated bridge** for hydrogen on the RQM/QSG s
 degeneracy, angular states, transition channels, numerical validation of shell locking,
 and a fine-structure H-alpha benchmark.
 
+## Central public claim
+
+Hydrogen bound-state shell architecture is naturally represented by scalar harmonics on \(S^3\).
+
+The shifted \(S^3\) shell-number operator
+
+\[
+\hat N=\sqrt{-\Delta_{S^3}+1}
+\]
+
+has eigenvalues \(K+1\), which are identified with the hydrogen principal shell number \(n\). The same \(S^3\) scalar harmonic shell has dimension \((K+1)^2=n^2\), reproducing the pre-spin hydrogen angular degeneracy. With the calibrated spectral operator
+
+\[
+H_C=-\frac{\mathrm{Ry}}{\hat N^2},
+\]
+
+the standard shell energy ladder \(E_n=-\mathrm{Ry}/n^2\) follows on each shell.
+
 Core equations used in the package:
 
 - \(\hat N = \sqrt{-\Delta_{S^3} + 1}\)
+- \(n = K + 1\)
+- \(\dim \mathcal H_K(S^3) = (K+1)^2 = n^2\)
 - \(\hat N = s^2/2\)
 - \(H_C = -\mathrm{Ry}/\hat N^2\)
 
@@ -52,6 +72,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 
 ## Technical notes
 
+- `notes/s3_scalar_harmonic_shell_architecture.md` — public-facing anchor note: hydrogen shell architecture as scalar harmonics on S³.
 - `notes/hydrogen_bridge_v1.md` — main Hydrogen Bridge v1 technical note.
 - `notes/appendix_coulomb_action_to_s3_operator.md` — expanded derivation from Coulomb action to the native S³ spectral hydrogen operator.
 - `notes/appendix_b_closure_geometry_inverse_square_action.md` — closure-action derivation showing how quaternionic closure plus central flux equilibrium supports the inverse-square Coulomb action law.
@@ -60,6 +81,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 
 ## Reviewer map
 
+- `notes/s3_scalar_harmonic_shell_architecture.md`
 - `notes/hydrogen_bridge_v1.md`
 - `notes/appendix_coulomb_action_to_s3_operator.md`
 - `notes/angular_projection_s3_to_s2.md`
@@ -67,6 +89,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 - `notes/appendix_b_closure_geometry_inverse_square_action.md`
 - `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`
 - `docs/claims_matrix.md`
+- `docs/public_release_readiness.md`
 
 ## Plot generation
 
