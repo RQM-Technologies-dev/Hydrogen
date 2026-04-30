@@ -42,6 +42,8 @@ Running `python scripts/generate_reports.py` creates:
 - `reports/shell_locking_validation.csv`
 - `reports/h_alpha_fine_structure.csv`
 - `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
+- `reports/hopf_projection_statistics.csv`
+- `reports/hopf_flux_scaling.csv`
 
 These artifacts provide a benchmark against hydrogen spectral architecture for Hydrogen Bridge v1.
 
@@ -53,6 +55,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 - `notes/hydrogen_bridge_v1.md` — main Hydrogen Bridge v1 technical note.
 - `notes/appendix_coulomb_action_to_s3_operator.md` — expanded derivation from Coulomb action to the native S³ spectral hydrogen operator.
 - `notes/appendix_b_closure_geometry_inverse_square_action.md` — closure-action derivation showing how quaternionic closure plus central flux equilibrium supports the inverse-square Coulomb action law.
+- `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md` — Hopf-projected quaternionic flux support layer showing how conserved projected $S^2$ flux gives $E(r)\sim 1/r^2$ and $V(r)\sim -1/r$.
 
 
 ## Reviewer map
@@ -61,6 +64,8 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 - `notes/appendix_coulomb_action_to_s3_operator.md`
 - `notes/angular_projection_s3_to_s2.md`
 - `notes/layer_separation.md`
+- `notes/appendix_b_closure_geometry_inverse_square_action.md`
+- `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`
 - `docs/claims_matrix.md`
 
 ## Plot generation

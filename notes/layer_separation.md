@@ -35,3 +35,13 @@ This is a semiclassical support layer that strengthens the bridge architecture b
 - Action conversion \(J=N_c\hbar\).
 - Fixed-action central-flux equilibrium \(E_J(r)=J^2/(2\mu r^2)-\kappa/r\).
 - Stability result \(E(J)=-\mu\kappa^2/(2J^2)\).
+
+## 4) Projected field-geometry support layer
+
+This layer investigates whether the central field scaling used in the Coulomb action law can be supported by quaternionic projection geometry.
+
+- Hopf-style projection \(q\mapsto q\mathbf kq^{-1}\) maps \(S^3\) orientation states to \(S^2\) directions.
+- Conserved projected \(S_r^2\) flux gives \(E(r)\sim 1/r^2\).
+- Integrating the radial field gives \(V(r)\sim -1/r\).
+- This supports the scaling form used in Appendix B.
+- It does not derive charge, \(\kappa\), Maxwell equations, or \(\mathrm{Ry}\).

@@ -7,6 +7,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from simulator.fine_structure import h_alpha_components
+from simulator.hopf_flux_projection import flux_scaling_diagnostics, projection_statistics
 from simulator.hydrogen_shell_simulator import angular_states, shell_table
 from simulator.shell_locking_test import run_shell_locking_test
 from simulator.spectral_comparison import REFERENCE_DATA_PATH, all_series_tables
@@ -48,12 +49,16 @@ def main() -> None:
     series_rows = all_series_tables()
     locking_rows = run_shell_locking_test(K_max=5)
     h_alpha_rows = h_alpha_components()
+    hopf_stats = [projection_statistics(count=10000, seed=0)]
+    hopf_flux = flux_scaling_diagnostics()
 
     write_csv(REPORTS_DIR / "shell_table.csv", shell_rows)
     write_csv(REPORTS_DIR / "angular_state_counts.csv", angular_counts)
     write_csv(REPORTS_DIR / "series_comparison.csv", series_rows)
     write_csv(REPORTS_DIR / "shell_locking_validation.csv", locking_rows)
     write_csv(REPORTS_DIR / "h_alpha_fine_structure.csv", h_alpha_rows)
+    write_csv(REPORTS_DIR / "hopf_projection_statistics.csv", hopf_stats)
+    write_csv(REPORTS_DIR / "hopf_flux_scaling.csv", hopf_flux["rows"])
 
     plots = sorted([p.name for p in PLOTS_DIR.glob("*.png")]) if PLOTS_DIR.exists() else []
     plot_note = [f"- `{name}`" for name in plots] if plots else ["Plots not found. Run `python scripts/generate_plots.py` to generate `reports/plots/*.png`."]
@@ -88,10 +93,20 @@ def main() -> None:
         "## 5. H-alpha fine-structure table",
         *to_markdown_table(h_alpha_rows, ["label", "delta_E_eV", "wavelength_nm"]),
         "",
-        "## 6. Generated plots",
+        "",
+        "## 6. Hopf flux projection diagnostics",
+        "These diagnostics test the projected-flux scaling layer only; they do not constitute a full derivation of electromagnetism.",
+        *to_markdown_table(hopf_stats, ["count", "mean_norm", "max_norm_error", "mean_x", "mean_y", "mean_z", "second_moment_x", "second_moment_y", "second_moment_z"]),
+        "",
+        f"- Field log-log slope: {hopf_flux['field_slope']:.12f}",
+        f"- Potential log-log slope: {hopf_flux['potential_slope']:.12f}",
+        f"- Max flux reconstruction error: {hopf_flux['max_flux_error']:.12e}",
+        "",
+        *to_markdown_table(hopf_flux["rows"], ["r", "area", "field", "potential", "reconstructed_flux"]),
+        "## 7. Generated plots",
         *plot_note,
         "",
-        "## 7. Limitations",
+        "## 8. Limitations",
         "- This implementation is a calibrated bridge and does not claim a first-principles derivation of the Rydberg constant.",
         "- Scope remains hydrogen; heavier elements are out of scope for v1.",
         "- Fine structure is benchmarked with a standard correction formula; native derivation is future work.",
