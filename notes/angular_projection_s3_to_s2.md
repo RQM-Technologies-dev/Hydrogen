@@ -1,30 +1,73 @@
-# S^3 to S^2 angular projection note
+# S^3 to S^2 angular projection / decomposition bridge note
 
-This note records the angular projection/decomposition used in Hydrogen Bridge v1.
+This note strengthens the Hydrogen Bridge v1 angular bridge statement while keeping calibrated-bridge honesty boundaries explicit.
 
-## Statement
+## Bridge statement
 
-For scalar shell harmonics on S^3 (with shell label H_K), the bridge uses:
+At shell index \(K\), Hydrogen Bridge v1 uses the representation-theoretic decomposition intuition
 
-H_K(S^3) -> ⊕_{ell=0}^{K} H_ell(S^2)
+\[
+\mathcal H_K(S^3) \;\to\; \bigoplus_{\ell=0}^{K} \mathcal H_\ell(S^2),
+\]
 
-and for K=n-1:
+with hydrogen identification \(K=n-1\):
 
-H_{n-1}(S^3) -> ⊕_{ell=0}^{n-1} H_ell(S^2).
+\[
+\mathcal H_{n-1}(S^3) \;\to\; \bigoplus_{\ell=0}^{n-1} \mathcal H_\ell(S^2).
+\]
 
-## Why this is the relevant structure
+## Why this is structurally plausible
 
-- S^3 ≅ SU(2), so harmonic sectors on S^3 carry a compact representation structure.
-- Scalar harmonics on S^3 at shell K have dimension (K+1)^2.
-- The projected S^2 angular labels are the standard hydrogen labels ell,m with m=-ell,...,+ell.
+1. **S^3 as SU(2):** S^3 is diffeomorphic to SU(2), so scalar harmonic shells on S^3 carry compact-group harmonic structure.
+2. **Shell dimension on S^3:**
+   \[
+   \dim \mathcal H_K(S^3)=(K+1)^2.
+   \]
+3. **Ordinary S^2 angular sectors:**
+   \[
+   \dim \mathcal H_\ell(S^2)=2\ell+1.
+   \]
+4. **Dimension identity:**
+   \[
+   \sum_{\ell=0}^{K}(2\ell+1)=(K+1)^2,
+   \]
+   so the S^2-sector counting exactly matches the S^3 shell count.
 
-State-count check:
+This recovers the standard angular counting pattern used for hydrogen labels:
 
-sum_{ell=0}^{n-1} (2ell+1) = n^2.
+- \(\ell=0,\dots,n-1\),
+- \(m=-\ell,\dots,+\ell\),
+- total count \(n^2\).
 
-This matches dim H_{n-1}(S^3)=n^2 and therefore recovers the standard hydrogen angular counting before spin/fine corrections.
+## Intertwiner language (careful use)
 
-## Caveat / honesty boundary
+In v1, the repo uses the above as a **decomposition/projection bridge statement** at the level of representation content and counting.
 
-This angular projection is a bridge/decomposition argument for mapping shell spaces to standard angular sectors.
-It is not, in v1, a full first-principles derivation of all Coulomb eigenfunctions from native RQM/QSG dynamics.
+It does **not** yet present a fully constructed physical unitary projection operator with complete normalization and dynamics attached.
+
+A precise future statement should define an explicit operator/intertwiner \(\Pi_K\) and validate it directly.
+
+## Honesty boundary
+
+This note supports angular-shell architecture and counting consistency only.
+
+It does **not** yet derive the full Coulomb radial eigenfunctions or the full Schrödinger-Coulomb solution.
+
+## Next operator-level upgrade
+
+Target object:
+
+\[
+\Pi_K : \mathcal H_K(S^3) \to \bigoplus_{\ell=0}^{K} \mathcal H_\ell(S^2).
+\]
+
+Desired properties for a stronger future bridge:
+
+1. linearity,
+2. dimension preservation,
+3. orthogonality/isometry or controlled normalization,
+4. compatibility with angular-momentum labels \((\ell,m)\),
+5. compatibility with dipole transition operators,
+6. recovery of standard \(\ell,m\) counting in explicit basis form.
+
+Until this operator-level program is completed, Hydrogen Bridge v1 should be read as a calibrated spectral representation bridge centered on S^3 scalar harmonic shell architecture.

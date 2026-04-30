@@ -31,12 +31,28 @@ def test_reference_csv_exists_and_schema_valid():
     assert p.exists()
     with p.open("r", encoding="utf-8", newline="") as f:
         r = csv.DictReader(f)
-        expected = {"series", "transition", "n_i", "n_f", "wavelength_nm", "medium", "source", "source_version_or_access_date", "notes"}
+        expected = {
+            "series", "transition", "n_i", "n_f", "wavelength_nm", "medium", "source",
+            "source_url", "source_access_date", "source_table_or_query", "notes"
+        }
         assert expected.issubset(set(r.fieldnames or []))
         rows = list(r)
         assert rows
-        assert all(row["medium"] for row in rows)
-        assert all(row["source"] for row in rows)
+        for row in rows:
+            assert row["medium"] in {"air", "vacuum"}
+            assert row["source"].strip()
+            assert row["source_url"].strip()
+            assert row["source_access_date"].strip()
+            assert row["source_table_or_query"].strip()
+
+
+def test_legacy_rows_are_clearly_labeled_when_present():
+    p = Path("data/hydrogen_reference_lines.csv")
+    with p.open("r", encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+    for row in rows:
+        if "legacy" in row["source"].lower() or "legacy" in row["notes"].lower():
+            assert "pending authoritative verification" in row["source"].lower() or "pending" in row["notes"].lower()
 
 
 def test_spectral_comparison_loads_from_csv_and_missing_graceful():
@@ -46,6 +62,12 @@ def test_spectral_comparison_loads_from_csv_and_missing_graceful():
     row_8_2 = [r for r in rows if r["transition"] == "8->2"][0]
     assert row_8_2["reference_nm"] is None
     assert row_8_2["error_nm"] is None
+
+
+def test_projection_dimension_identity_sum_2ell_plus_1_equals_n2():
+    for n in range(1, 11):
+        lhs = sum((2 * ell + 1) for ell in range(0, n))
+        assert lhs == n**2
 
 
 def test_angular_states_count():
@@ -81,7 +103,7 @@ def test_h_alpha_components_sorted_nonempty():
 
 def test_doc_integrity_notes_and_claims_matrix():
     ap = Path("notes/angular_projection_s3_to_s2.md").read_text(encoding="utf-8")
-    for token in ["S^3", "S^2", "H_K", "n^2", "angular projection"]:
+    for token in ["S^3", "S^2", "H_K", "intertwiner", "Honesty boundary"]:
         assert token in ap
 
     ls = Path("notes/layer_separation.md").read_text(encoding="utf-8")
@@ -110,4 +132,4 @@ def test_plot_generation_runs_or_skips():
         "transition_wavelength_comparison.png",
     ]
     for name in expected:
-        assert Path("reports/plots") .joinpath(name).exists()
+        assert Path("reports/plots").joinpath(name).exists()
