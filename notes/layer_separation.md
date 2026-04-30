@@ -25,3 +25,13 @@ These are the v1 native bridge structures:
 - Numerical shell-locking validation.
 
 Honesty boundary: v1's native contribution is a unified shell architecture and falsifiable bridge implementation, not an independent native derivation of every constant/correction.
+
+
+## 3) Semiclassical closure-action support layer
+
+This is a semiclassical support layer that strengthens the bridge architecture but is not a full native derivation:
+
+- Quaternionic loop closure count \(N_c=(1/4\pi)\|\oint q^{-1}dq\|\).
+- Action conversion \(J=N_c\hbar\).
+- Fixed-action central-flux equilibrium \(E_J(r)=J^2/(2\mu r^2)-\kappa/r\).
+- Stability result \(E(J)=-\mu\kappa^2/(2J^2)\).

@@ -35,6 +35,8 @@ Then
 and at \(s^2=2n\),
 \[E_n=-\frac{\mathrm{Ry}}{n^2}.\]
 
+For the upstream closure-action derivation of why fixed central-field closure gives \(E(J)\sim -1/J^2\), see [Appendix B — Closure Geometry and the Inverse-Square Action Law](appendix_b_closure_geometry_inverse_square_action.md).
+
 ## 8. Native \(S^3\) spectral energy operator
 \[H_C=-\frac{\mathrm{Ry}}{-\Delta_{S^3}+1}=-\frac{\mathrm{Ry}}{\hat N^2}.\]
 Therefore shell energies are \(E_n=-\mathrm{Ry}/n^2\).
@@ -81,3 +83,4 @@ See also `notes/layer_separation.md` for benchmark-vs-native scope boundaries.
 - Reference wavelengths are hardcoded benchmark values for software validation; future work should replace them with a cited, versioned reference dataset and consistently distinguish air vs vacuum wavelengths.
 - Next steps: stronger uncertainty quantification, spin-coupled extensions, and richer comparison
   tables while preserving the same falsifiable bridge architecture.
+- Future work should test how far the closure-action derivation can be upgraded from semiclassical support to a fully native operator derivation.
