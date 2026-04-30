@@ -52,6 +52,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 
 - `notes/hydrogen_bridge_v1.md` — main Hydrogen Bridge v1 technical note.
 - `notes/appendix_coulomb_action_to_s3_operator.md` — expanded derivation from Coulomb action to the native S³ spectral hydrogen operator.
+- `notes/appendix_b_closure_geometry_inverse_square_action.md` — closure-action derivation showing how quaternionic closure plus central flux equilibrium supports the inverse-square Coulomb action law.
 
 
 ## Reviewer map
