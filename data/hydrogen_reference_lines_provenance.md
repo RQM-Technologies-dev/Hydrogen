@@ -2,48 +2,42 @@
 
 ## Status
 
-The current `data/hydrogen_reference_lines.csv` rows are **legacy benchmark values pending authoritative verification**.
-They are retained for continuity of Hydrogen Bridge v1 report generation, but they are not yet presented as a finalized public authoritative spectroscopy table.
+`data/hydrogen_reference_lines.csv` now contains manually verified NIST ASD H I Ritz wavelengths for the currently tracked:
 
-## Intended authoritative source
+- Lyman transitions: 2->1 through 6->1
+- Balmer transitions: 3->2 through 7->2
+- Paschen transitions: 4->3 through 8->3
 
-- Primary source: NIST Atomic Spectra Database (ASD), Lines Data for Hydrogen (H I).
+## Authoritative source
+
+- Primary source: NIST Atomic Spectra Database (ASD), Lines Data for Hydrogen (H I)
 - URL: https://physics.nist.gov/asd
-- Recommended retrieval mode:
+- Retrieval framing used for this dataset:
   - Species: H I
   - Data type: Lines
-  - Output fields: observed/ritz wavelength, uncertainty (if available), transition designation, lower/upper levels
-  - Medium handling: explicitly capture whether each wavelength is in air or vacuum
+  - Value basis: Ritz wavelength
+  - Medium labels copied by ASD output convention (air/vacuum)
 
-## Why this file exists
+## Medium convention used in CSV
 
-Automated extraction from NIST ASD can be brittle across query/UI updates. For public release honesty, this repo now records:
+This repository does not remap media independently. The `medium` column records the medium corresponding to the NIST ASD line output convention for each listed transition.
 
-1. exact provenance fields in CSV rows,
-2. explicit medium (`air` or `vacuum`), and
-3. a reproducible manual verification/update procedure.
+For the currently included transitions this yields:
 
-## Manual update procedure (authoritative replacement path)
+- Lyman rows: `vacuum`
+- Balmer rows: `air`
+- Paschen rows: `air`
 
-1. Open NIST ASD lines interface from https://physics.nist.gov/asd.
-2. Query Hydrogen (H I) line data for the target transitions used in this repo:
-   - Lyman: 2->1, 3->1, 4->1, 5->1, 6->1
-   - Balmer: 3->2, 4->2, 5->2, 6->2, 7->2
-   - Paschen: 4->3, 5->3, 6->3, 7->3, 8->3
-3. For each transition, record:
-   - wavelength (nm),
-   - medium basis (air/vacuum),
-   - source URL/query details,
-   - access date,
-   - table/query label used.
-4. Replace legacy benchmark rows in `data/hydrogen_reference_lines.csv` with verified values.
-5. Update row `notes` to remove "legacy benchmark" language once verified.
-6. Run:
-   - `pytest`
-   - `python scripts/generate_reports.py`
-   - `python scripts/generate_plots.py`
-7. Confirm `reports/series_comparison.csv` and `reports/HYDROGEN_BRIDGE_V1_REPORT.md` render the updated provenance fields.
+## Maintenance procedure
+
+For future updates or added transitions:
+
+1. Query NIST ASD H I Lines Data.
+2. Record Ritz wavelength and ASD medium basis for each transition.
+3. Keep provenance columns (`source`, `source_url`, `source_access_date`, `source_table_or_query`, `notes`) populated.
+4. Re-run project checks and report generation.
 
 ## Honesty boundary
 
-Until step 4 is completed with verified NIST ASD extraction, this repository should describe the reference-line table as **partially complete for public release**: provenance schema and update path are in place; authoritative row replacement is still pending.
+- Verified spectroscopy claims should be made from the CSV/provenance tables.
+- Theoretical S^3/R_s derivation notes are model-side documents and are not spectroscopy measurement sources.
