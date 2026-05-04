@@ -46,13 +46,20 @@ def test_reference_csv_exists_and_schema_valid():
             assert row["source_table_or_query"].strip()
 
 
-def test_legacy_rows_are_clearly_labeled_when_present():
+def test_reference_rows_are_nist_sourced_and_not_legacy():
     p = Path("data/hydrogen_reference_lines.csv")
     with p.open("r", encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f))
+
+    assert rows
     for row in rows:
-        if "legacy" in row["source"].lower() or "legacy" in row["notes"].lower():
-            assert "pending authoritative verification" in row["source"].lower() or "pending" in row["notes"].lower()
+        assert "nist" in row["source"].lower()
+        assert row["source_url"].strip()
+        assert row["source_access_date"].strip()
+        assert row["medium"] in {"air", "vacuum"}
+        row_blob = " ".join([row["source"], row["notes"], row["source_table_or_query"]]).lower()
+        assert "legacy benchmark" not in row_blob
+        assert "pending authoritative verification" not in row_blob
 
 
 def test_spectral_comparison_loads_from_csv_and_missing_graceful():

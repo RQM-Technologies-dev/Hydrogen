@@ -39,21 +39,21 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 ## 3. Lyman/Balmer/Paschen comparison table
 | series | transition | predicted_nm | reference_nm | medium | source | error_nm | relative_error_ppm |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Lyman | 2->1 | 121.502273 | 121.567000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.064727 | -532.435521 |
-| Lyman | 3->1 | 102.517543 | 102.572000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.054457 | -530.913012 |
-| Lyman | 4->1 | 97.201819 | 97.254000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.052181 | -536.546273 |
-| Lyman | 5->1 | 94.923651 | 94.974000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.050349 | -530.133486 |
-| Lyman | 6->1 | 93.730325 | 93.780000 | vacuum | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.049675 | -529.695001 |
-| Balmer | 3->2 | 656.112276 | 656.281000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.168724 | -257.090455 |
-| Balmer | 4->2 | 486.009094 | 486.133000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.123906 | -254.881598 |
-| Balmer | 5->2 | 433.936691 | 434.047000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.110309 | -254.141248 |
-| Balmer | 6->2 | 410.070173 | 410.174000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.103827 | -253.129740 |
-| Balmer | 7->2 | 396.907426 | 397.007000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.099574 | -250.810500 |
-| Paschen | 4->3 | 1874.606504 | 1875.627000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -1.020496 | -544.082563 |
-| Paschen | 5->3 | 1281.469290 | 1281.807000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.337710 | -263.464093 |
-| Paschen | 6->3 | 1093.520461 | 1093.807000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.286539 | -261.965137 |
-| Paschen | 7->3 | 1004.671923 | 1004.938000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.266077 | -264.769302 |
-| Paschen | 8->3 | 954.345129 | 954.621000 | air | Hydrogen Bridge v1 legacy benchmark values pending authoritative verification | -0.275871 | -288.984490 |
+| Lyman | 2->1 | 121.502273 | 121.567000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.064727 | -532.435521 |
+| Lyman | 3->1 | 102.517543 | 102.572000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.054457 | -530.913012 |
+| Lyman | 4->1 | 97.201819 | 97.254000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.052181 | -536.546273 |
+| Lyman | 5->1 | 94.923651 | 94.974000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.050349 | -530.133486 |
+| Lyman | 6->1 | 93.730325 | 93.780000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.049675 | -529.695001 |
+| Balmer | 3->2 | 656.112276 | 656.281000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.168724 | -257.090455 |
+| Balmer | 4->2 | 486.009094 | 486.133000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.123906 | -254.881598 |
+| Balmer | 5->2 | 433.936691 | 434.047000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.110309 | -254.141248 |
+| Balmer | 6->2 | 410.070173 | 410.174000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.103827 | -253.129740 |
+| Balmer | 7->2 | 396.907426 | 397.007000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.099574 | -250.810500 |
+| Paschen | 4->3 | 1874.606504 | 1875.627000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -1.020496 | -544.082563 |
+| Paschen | 5->3 | 1281.469290 | 1281.807000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.337710 | -263.464093 |
+| Paschen | 6->3 | 1093.520461 | 1093.807000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.286539 | -261.965137 |
+| Paschen | 7->3 | 1004.671923 | 1004.938000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.266077 | -264.769302 |
+| Paschen | 8->3 | 954.345129 | 954.621000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.275871 | -288.984490 |
 
 ## 4. Shell-locking validation table
 | K | target_x | expectation_x | error | variance_x | eigenvalue_0 |
