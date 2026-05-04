@@ -140,3 +140,37 @@ def test_plot_generation_runs_or_skips():
     ]
     for name in expected:
         assert Path("reports/plots").joinpath(name).exists()
+
+from simulator.s3_s2_intertwiner import (
+    angular_sectors_for_K,
+    pi_k_label_map,
+    s2_branch_dimension,
+    s3_shell_dimension,
+    shell_j,
+    validate_branching_dimension,
+)
+
+
+def test_shell_j_and_branch_dimensions_low_k():
+    for K in range(5):
+        assert shell_j(K) == K / 2
+        assert s3_shell_dimension(K) == (K + 1) ** 2
+        assert s2_branch_dimension(K) == (K + 1) ** 2
+        assert validate_branching_dimension(K)
+
+
+def test_angular_sectors_exact_low_k():
+    for K in range(5):
+        sectors = angular_sectors_for_K(K)
+        assert {ell for ell, _ in sectors} == set(range(K + 1))
+        assert len(sectors) == (K + 1) ** 2
+
+
+def test_pi_k_label_map_unique_target_labels_low_k():
+    for K in range(5):
+        rows = pi_k_label_map(K)
+        assert len(rows) == (K + 1) ** 2
+        sources = {row["source"] for row in rows}
+        targets = {row["target"] for row in rows}
+        assert len(sources) == len(rows)
+        assert len(targets) == len(rows)
