@@ -71,3 +71,14 @@ Desired properties for a stronger future bridge:
 6. recovery of standard \(\ell,m\) counting in explicit basis form.
 
 Until this operator-level program is completed, Hydrogen Bridge v1 should be read as a calibrated spectral representation bridge centered on S^3 scalar harmonic shell architecture.
+
+
+## See also: Operator-level upgrade
+
+For the operator-level target map
+
+\[
+\Pi_K^{\mathrm{ang}}:\mathcal H_K(S^3)	oigoplus_{\ell=0}^{K}\mathcal H_\ell(S^2),
+\]
+
+see `notes/pi_k_angular_intertwiner.md`. That note defines \(\Pi_K^{\mathrm{ang}}\) as a normalized angular-momentum branching operator (intertwiner target), distinct from a purely pointwise projection picture.
