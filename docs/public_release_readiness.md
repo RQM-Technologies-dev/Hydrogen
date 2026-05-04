@@ -10,7 +10,7 @@ This checklist tracks publication-readiness items for Hydrogen Bridge v1 while p
 - [x] Math references present (`docs/math_references.md`).
 - [x] Projection/intertwiner note present (`notes/angular_projection_s3_to_s2.md`).
 - [x] Spectral provenance schema present (`data/hydrogen_reference_lines.csv`, `data/hydrogen_reference_lines_provenance.md`).
-- [ ] Authoritative NIST row replacement complete (still pending; legacy benchmark rows remain).
+- [x] Authoritative NIST row replacement complete for current Lyman/Balmer/Paschen benchmark subset.
 - [x] License selection complete (`LICENSE`).
 - [x] Citation metadata present (`CITATION.cff`).
 - [x] Security/contributing docs present (`SECURITY.md`, `CONTRIBUTING.md`).

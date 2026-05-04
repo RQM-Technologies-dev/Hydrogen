@@ -23,7 +23,7 @@ Implemented bridge equations and identities used in this package:
 - It is not a completed first-principles derivation of the full Schrödinger-Coulomb solution.
 - It does not independently derive \(\mathrm{Ry}\), \(\kappa\), electric charge, Maxwell equations, fine structure, or all hydrogen eigenfunctions.
 - It does not yet construct the full physical \(S^3\to S^2\) projection/intertwiner operator.
-- Spectral-line reference rows are currently legacy benchmark values with provenance fields and an authoritative NIST ASD replacement path.
+- Spectral-line reference rows are sourced from NIST ASD with provenance fields recording query method, medium, and access date.
 
 ## Start here
 
