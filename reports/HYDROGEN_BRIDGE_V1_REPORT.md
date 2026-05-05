@@ -9,17 +9,14 @@ E_n = -Ry/n^2
 
 dim H_{n-1}(S^3)=n^2
 
-## Layer separation
-Standard benchmark formulas/data are separated from native RQM/QSG bridge structures; see `notes/layer_separation.md`.
+Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
+Layer separation is documented in `notes/layer_separation.md`.
 
-## Reference wavelength provenance
+## Core validation tables
 Reference lines are loaded from `data/hydrogen_reference_lines.csv` with medium metadata (air/vacuum) and source fields.
 Reference wavelengths are sourced from NIST ASD H I Lines Data for the current Lyman/Balmer/Paschen subset, with explicit air/vacuum medium metadata and access-date provenance. Future work may add uncertainty columns, exact level labels, and broader line coverage.
 
-## Claims matrix
-Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
-
-## 1. Shell table (n=1..8)
+### 1. Shell table
 | n | K | s2 | s | degeneracy | energy_eV |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 0 | 2.000000 | 1.414214 | 1 | -13.605693 |
@@ -31,7 +28,7 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | 7 | 6 | 14.000000 | 3.741657 | 49 | -0.277667 |
 | 8 | 7 | 16.000000 | 4.000000 | 64 | -0.212589 |
 
-## 2. Angular state count table
+### 2. Angular state count table
 | n | state_count | expected |
 | --- | --- | --- |
 | 1 | 1 | 1 |
@@ -43,7 +40,7 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | 7 | 49 | 49 |
 | 8 | 64 | 64 |
 
-## 3. Lyman/Balmer/Paschen comparison table
+### 3. Lyman/Balmer/Paschen comparison table
 | series | transition | predicted_nm | reference_nm | medium | source | error_nm | relative_error_ppm |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Lyman | 2->1 | 121.502273 | 121.567000 | vacuum | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.064727 | -532.435521 |
@@ -62,7 +59,7 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | Paschen | 7->3 | 1004.671923 | 1004.938000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.266077 | -264.769302 |
 | Paschen | 8->3 | 954.345129 | 954.621000 | air | NIST Atomic Spectra Database (ASD), H I Lines Data | -0.275871 | -288.984490 |
 
-## 4. Shell-locking validation table
+### 4. Shell-locking validation table
 | K | target_x | expectation_x | error | variance_x | eigenvalue_0 |
 | --- | --- | --- | --- | --- | --- |
 | 0 | 1.000000 | 0.998125 | -0.001875 | 0.003883 | 5.180950 |
@@ -72,7 +69,10 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | 4 | 5.000000 | 4.999185 | -0.000815 | 0.008909 | 11.338442 |
 | 5 | 6.000000 | 5.999261 | -0.000739 | 0.009793 | 12.366492 |
 
-## 5. H-alpha fine-structure table
+## Benchmark/support tables
+
+### H-alpha fine-structure benchmark
+This is a standard benchmark correction, not a native fine-structure derivation.
 | label | delta_E_eV | wavelength_nm |
 | --- | --- | --- |
 | 3p_3/2 -> 2s_1/2 | 1.889729 | 656.094953 |
@@ -83,9 +83,10 @@ Status and honesty boundaries are tracked in `docs/claims_matrix.md`.
 | 3d_3/2 -> 2p_3/2 | 1.889684 | 656.110675 |
 | 3s_1/2 -> 2p_3/2 | 1.889671 | 656.115334 |
 
+## Appendix diagnostics
 
-## 6. Hopf flux projection diagnostics
-These diagnostics test the projected-flux scaling layer only; they do not constitute a full derivation of electromagnetism.
+### Hopf flux projection diagnostics
+These diagnostics test a projected-flux support layer only and are not part of the core S^3 spectral claim.
 | count | mean_norm | max_norm_error | mean_x | mean_y | mean_z | second_moment_x | second_moment_y | second_moment_z |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 10000 | 1.000000 | 0.000000 | 0.003446 | -0.004401 | -0.000200 | 0.335296 | 0.335312 | 0.329392 |
@@ -103,14 +104,15 @@ These diagnostics test the projected-flux scaling layer only; they do not consti
 | 5.000000 | 314.159265 | 0.003183 | -0.015915 | 1.000000 |
 | 8.000000 | 804.247719 | 0.001243 | -0.009947 | 1.000000 |
 | 13.000000 | 2123.716634 | 0.000471 | -0.006121 | 1.000000 |
-## 7. Generated plots
+
+## Generated plots
 - `hydrogen_energy_ladder.png`
 - `shell_locking_error.png`
 - `shell_locking_expectation_vs_target.png`
 - `shell_locking_potential_K0_K5.png`
 - `transition_wavelength_comparison.png`
 
-## 8. Limitations
+## Limitations
 - This implementation is a calibrated bridge and does not claim a first-principles derivation of the Rydberg constant.
 - Scope remains hydrogen; heavier elements are out of scope for v1.
 - Fine structure is benchmarked with a standard correction formula; native derivation is future work.

@@ -21,13 +21,13 @@ E_n=-\frac{\mathrm{Ry}}{n^2}
 \Pi_K^{\mathrm{ang}}:\mathcal H_K(S^3)\to\bigoplus_{\ell=0}^{K}\mathcal H_\ell(S^2)
 \]
 
-## What is implemented
+## What is implemented / executable validation
 - Core S^3 shell spectrum and shell-number operator mapping.
 - Shell table/energy helpers and \(n^2\) counting checks.
 - Symbolic/operator-target angular bridge \(\Pi_K^{\mathrm{ang}}\).
 - NIST ASD line-comparison, shell-locking diagnostics, tests, and generated report artifacts.
 
-## What is not claimed
+## Explicit non-claims
 - No first-principles derivation of Ry, \(\kappa\), charge, or Maxwell equations.
 - No full Schrödinger-Coulomb solution derivation.
 - No native fine-structure derivation.
