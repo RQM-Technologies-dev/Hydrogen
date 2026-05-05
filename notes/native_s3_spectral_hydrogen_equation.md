@@ -75,6 +75,8 @@ With hydrogen identification \(n=K+1\):
 E_n = -\frac{\mathrm{Ry}}{n^2}.
 \]
 
+This is the precise sense in which the repo treats hydrogen shell structure as an S^3 resonance: the shell eigenvalue of the shifted S^3 Laplacian determines the principal shell and calibrated energy denominator.
+
 ## 5. Why this is cleaner
 
 The radial Coulomb shell law is encoded as a spectral function of the \(S^3\) Laplacian:

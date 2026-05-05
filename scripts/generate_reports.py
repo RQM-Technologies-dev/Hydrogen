@@ -88,6 +88,8 @@ def main() -> None:
         "### 2. Angular state count table",
         *to_markdown_table(angular_counts, ["n", "state_count", "expected"]),
         "",
+        "The wavelength comparison is a benchmark sanity check for the calibrated shell-energy law; residuals reflect the simplified v1 energy model and are not claimed as precision spectroscopy fits.",
+        "",
         "### 3. Lyman/Balmer/Paschen comparison table",
         *to_markdown_table(series_rows, ["series", "transition", "predicted_nm", "reference_nm", "medium", "source", "error_nm", "relative_error_ppm"]),
         "",

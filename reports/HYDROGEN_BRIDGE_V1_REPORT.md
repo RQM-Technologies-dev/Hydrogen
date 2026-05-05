@@ -40,6 +40,8 @@ Reference wavelengths are sourced from NIST ASD H I Lines Data for the current L
 | 7 | 49 | 49 |
 | 8 | 64 | 64 |
 
+The wavelength comparison is a benchmark sanity check for the calibrated shell-energy law; residuals reflect the simplified v1 energy model and are not claimed as precision spectroscopy fits.
+
 ### 3. Lyman/Balmer/Paschen comparison table
 | series | transition | predicted_nm | reference_nm | medium | source | error_nm | relative_error_ppm |
 | --- | --- | --- | --- | --- | --- | --- | --- |
