@@ -2,41 +2,91 @@
 
 # Hydrogen Bridge v1
 
-## What this repository is
-
-Hydrogen Bridge v1 is a reproducible research package exploring a calibrated spectral-geometric representation of hydrogen shell architecture on \(S^3 \times \mathbb R_s\). Its central claim is narrow: hydrogen’s principal shell number, pre-spin angular degeneracy, and Rydberg energy denominator are naturally represented by scalar harmonic shells on \(S^3\).
+## One-sentence claim
+Hydrogen Bridge v1 shows that hydrogen shell architecture can be represented cleanly by scalar harmonics on S^3, with the shifted S^3 Laplacian producing the principal shell number, n^2 degeneracy, and the calibrated Rydberg energy denominator.
 
 ## Central public claim
-
 Hydrogen bound-state shell architecture is naturally represented by scalar harmonics on S³.
 
-Implemented bridge equations and identities used in this package:
+## Core result
+\[
+-\Delta_{S^3}Y_K = K(K+2)Y_K
+\]
+\[
+\hat N = \sqrt{-\Delta_{S^3}+1},\qquad \hat N Y_K = (K+1)Y_K
+\]
+\[
+n = K+1,\qquad \dim\mathcal H_K(S^3) = (K+1)^2 = n^2
+\]
+\[
+H_C = -\frac{\mathrm{Ry}}{-\Delta_{S^3}+1},\qquad H_C\Psi=E\Psi,\qquad E_n=-\frac{\mathrm{Ry}}{n^2}
+\]
 
-- \(-\Delta_{S^3}Y_K = K(K+2)Y_K\)
-- \(\hat N = \sqrt{-\Delta_{S^3}+1}\), with \(\hat N\,Y_K = (K+1)Y_K\)
-- \(n = K+1\), and \(\dim\mathcal H_K(S^3)=(K+1)^2=n^2\)
-- Calibrated energy operator \(H_C = -\mathrm{Ry}/\hat N^2\), giving \(E_n=-\mathrm{Ry}/n^2\)
-- Shell-locking relation used in diagnostics: \(\hat N = s^2/2\)
+## Why this matters
+- The ordinary hydrogen shell number appears as an S^3 spectral shell number.
+- The same shell number controls both the energy denominator and the pre-spin shell degeneracy.
+- The clean operator \(H_C=-\mathrm{Ry}/(-\Delta_{S^3}+1)\) is much simpler than the optional modeling stack.
+- The angular bridge \(\Pi_K^{\mathrm{ang}}\) maps S^3 shell content to standard hydrogen angular labels.
+- The repository includes executable tests and generated reports.
 
-## What this repository is not
+## What is implemented
 
-- It is not a completed first-principles derivation of the full Schrödinger-Coulomb solution.
-- It does not independently derive \(\mathrm{Ry}\), \(\kappa\), electric charge, Maxwell equations, fine structure, or all hydrogen eigenfunctions.
-- It does not yet construct the full physical \(S^3\to S^2\) projection/intertwiner operator.
-- Spectral-line reference rows are sourced from NIST ASD with provenance fields recording query method, medium, and access date.
+### Core
+- clean S^3 spectral equation (`notes/native_s3_spectral_hydrogen_equation.md`)
+- S^3 scalar harmonic shell architecture (`notes/s3_scalar_harmonic_shell_architecture.md`)
+- shell table and energy helper (`simulator/hydrogen_shell_simulator.py`)
+- \(\Pi_K^{\mathrm{ang}}\) symbolic angular bridge (`notes/pi_k_angular_intertwiner.md`)
+- claims matrix (`docs/claims_matrix.md`)
+
+### Validation
+- NIST ASD spectral comparison (`simulator/spectral_comparison.py`, `data/hydrogen_reference_lines.csv`)
+- shell-locking numerical diagnostic (`simulator/shell_locking_test.py`)
+- report generation (`scripts/generate_reports.py`)
+- tests/CI (`tests/`, `.github/workflows/ci.yml`)
+
+### Appendices/support
+- closure-action support (`notes/appendix_b_closure_geometry_inverse_square_action.md`)
+- Hopf flux projection support (`notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`)
+- fine-structure benchmark (`simulator/fine_structure.py`, `reports/h_alpha_fine_structure.csv`)
+
+## What this repository does not claim
+- no first-principles Rydberg-constant derivation
+- no derivation of \(\kappa\), electric charge, or Maxwell equations
+- no full Schrödinger-Coulomb solution derivation
+- no native fine-structure derivation yet
+- no complete physical unitary \(\Pi_K\) operator yet
 
 ## Start here
-
-Recommended order:
-
 1. `notes/s3_scalar_harmonic_shell_architecture.md`
-2. `notes/hydrogen_bridge_v1.md`
-3. `notes/angular_projection_s3_to_s2.md`
+2. `notes/native_s3_spectral_hydrogen_equation.md`
+3. `notes/pi_k_angular_intertwiner.md`
 4. `docs/claims_matrix.md`
-5. `docs/public_release_readiness.md`
+5. `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
+
+For appendices and support layers, see `notes/layer_separation.md`.
+
+## Reviewer map
+
+### Core reviewer path
+- `notes/s3_scalar_harmonic_shell_architecture.md`
+- `notes/native_s3_spectral_hydrogen_equation.md`
+- `notes/pi_k_angular_intertwiner.md`
+- `docs/claims_matrix.md`
+
+### Validation artifacts
+- `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
+- `reports/shell_table.csv`
+- `reports/angular_state_counts.csv`
+- `reports/series_comparison.csv`
+- `reports/shell_locking_validation.csv`
+
+### Appendices/support
+- `notes/layer_separation.md`
+- `notes/appendix_coulomb_action_to_s3_operator.md`
+- `notes/appendix_b_closure_geometry_inverse_square_action.md`
+- `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`
 
 ## Quickstart
-
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -46,41 +96,8 @@ python scripts/generate_reports.py
 python scripts/generate_plots.py
 ```
 
-## What is implemented and generated
-
-Running `python scripts/generate_reports.py` creates:
-
-- `reports/shell_table.csv`
-- `reports/angular_state_counts.csv`
-- `reports/series_comparison.csv`
-- `reports/shell_locking_validation.csv`
-- `reports/h_alpha_fine_structure.csv`
-- `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
-- `reports/hopf_projection_statistics.csv`
-- `reports/hopf_flux_scaling.csv`
-
-Run `python scripts/generate_plots.py` to generate deterministic visual diagnostics under `reports/plots/`.
-
-Generated artifacts under `reports/` are produced locally and may not be committed in every branch or clone.
-
-## Reviewer map
-
-- `notes/hydrogen_bridge_v1.md`
-- `notes/s3_scalar_harmonic_shell_architecture.md` — public-facing anchor note for hydrogen shell architecture as scalar harmonics on S³.
-- `notes/native_s3_spectral_hydrogen_equation.md`
-- `notes/appendix_coulomb_action_to_s3_operator.md`
-- `notes/angular_projection_s3_to_s2.md`
-- `docs/math_references.md`
-- `data/hydrogen_reference_lines_provenance.md`
-- `notes/layer_separation.md`
-- `notes/appendix_b_closure_geometry_inverse_square_action.md`
-- `notes/appendix_c_hopf_flux_projection_and_coulomb_field.md`
-- `docs/claims_matrix.md`
-
 ## Continuous Integration
-
 The CI workflow runs tests and regenerates reports on pushes to `main` and pull requests targeting `main`.
 
 ## License
-
 This repository is licensed under the MIT License. See [`LICENSE`](LICENSE).
