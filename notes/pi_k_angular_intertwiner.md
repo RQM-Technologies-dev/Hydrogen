@@ -1,6 +1,6 @@
 # Π_K^ang — Clean angular bridge from S^3 shells to hydrogen angular states
 
-## 1. Purpose
+## 1. Clean statement
 
 This note specifies an operator-level angular bridge at fixed shell index \(K\):
 
@@ -10,7 +10,7 @@ This note specifies an operator-level angular bridge at fixed shell index \(K\):
 
 The goal is to make the shell-wise angular branching statement explicit while keeping implementation limits clear.
 
-## 2. Clean statement
+## 2. Bridge table
 
 At fixed S^3 shell \(K\), the angular content of the shell is identified with the direct sum of ordinary \(S^2\) angular momentum sectors:
 
@@ -137,7 +137,7 @@ L^2Y_{\ell m}=\ell(\ell+1)Y_{\ell m},
 
 and similarly for \(m\).
 
-## 7. Distinction from the Hopf map
+## 7. Hopf-map warning
 
 \(\Pi_K^{\mathrm{ang}}\) is not merely the Hopf point map \(q\mapsto qkq^{-1}\); it is a shell-level angular branching map.
 
@@ -154,7 +154,7 @@ recovering standard hydrogen angular labels:
 - \(\ell=0,\dots,n-1\),
 - \(m=-\ell,\dots,\ell\).
 
-## 9. Future work
+## 9. Technical next steps
 
 - numerical Clebsch-Gordan implementation,
 - orthonormality tests,

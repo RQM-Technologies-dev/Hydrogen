@@ -1,103 +1,56 @@
 # Hydrogen Bridge v1 Technical Note
 
-## 1. Abstract
-Hydrogen Bridge v1 is a calibrated and falsifiable bridge between the RQM/QSG geometry on
-\(M=S^3\times\mathbb R_s\) and observed hydrogen spectral architecture. The v1 package reproduces
-shell energies, shell degeneracy, angular state counting, dipole selection rules, shell-locking
-behavior, and a leading fine-structure benchmark for H-alpha.
+## 1. Scope and honesty boundary
+Hydrogen Bridge v1 is a calibrated, falsifiable bridge between \(S^3\) spectral structure and hydrogen shell architecture. v1 is focused on hydrogen and uses \(\mathrm{Ry}\) as a calibration constant. It does not claim a first-principles derivation of \(\mathrm{Ry}\), \(\kappa\), charge, Maxwell equations, fine structure, or the full Schrödinger-Coulomb solution.
 
-## 2. Scope and honesty statement
-- The Rydberg energy \(\mathrm{Ry}\) is used as a **calibration constant** in v1.
-- This is a validation of bridge architecture and numerical behavior, not a full replacement
-  derivation of hydrogen from first principles.
-- The scope is hydrogen only.
-
-## 3. State space: \(M=S^3\times\mathbb R_s\)
-The bridge uses compact angular-spectral structure from \(S^3\) and a real shell coordinate \(s\)
-for shell locking.
-
-## 4. \(S^3\) harmonic spectrum
-\[-\Delta_{S^3}Y_K = K(K+2)Y_K,\qquad K=0,1,2,\ldots\]
-So \(-\Delta_{S^3}+1\) has eigenvalue \((K+1)^2\).
-
-## 5. Shifted shell-number operator \(\hat N\)
-\[\hat N = \sqrt{-\Delta_{S^3}+1},\qquad \hat N Y_K=(K+1)Y_K.\]
-Hence principal shell number is \(n=K+1\).
-
-## 6. Shell-locking condition \(\hat N=s^2/2\)
-\[\hat N=\frac{s^2}{2}\Rightarrow n=K+1=\frac{s^2}{2}.\]
-This is checked numerically via sector-wise finite-difference ground states.
-
-## 7. Projected central flux hypothesis
-Appendix B strengthens the action side of the bridge. Appendix C investigates the field-origin side: whether the central \(1/r\) potential scaling used in the Coulomb action relation can be understood as conserved \(S^2\)-projected flux from quaternionic orientation geometry on \(S^3\).
-
-\[\mathbf n(q)=q\mathbf kq^{-1}\in S^2.\]
-
-\[\Phi=\int_{S^2_r}\mathbf E\cdot d\mathbf A.\]
-
+## 2. S^3 shell spectrum
 \[
-E(r)=\frac{\Phi}{4\pi r^2},
-\qquad
-V(r)\sim-\frac{1}{r}.
+-\Delta_{S^3}Y_K = K(K+2)Y_K,\qquad K=0,1,2,\ldots
+\]
+So \((-\Delta_{S^3}+1)\) has eigenvalue \((K+1)^2\).
+
+## 3. Shell-number operator
+\[
+\hat N = \sqrt{-\Delta_{S^3}+1},\qquad \hat N Y_K=(K+1)Y_K.
+\]
+Hence principal shell number is identified as
+\[
+n=K+1.
 \]
 
-For details and diagnostics, see [Appendix C — Hopf Flux Projection and the Coulomb Field](appendix_c_hopf_flux_projection_and_coulomb_field.md).
+## 4. Clean spectral operator
+\[
+H_C=-\frac{\mathrm{Ry}}{-\Delta_{S^3}+1}=-\frac{\mathrm{Ry}}{\hat N^2}.
+\]
+For shell \(n\):
+\[
+E_n=-\frac{\mathrm{Ry}}{n^2}.
+\]
 
-## 8. Coulomb action relation
-\[E(J)=-\frac{\mu\kappa^2}{2J^2},\qquad J(s)=\hbar\frac{s^2}{2}.\]
-Then
-\[E(s)=-\frac{4\mathrm{Ry}}{s^4},\]
-and at \(s^2=2n\),
-\[E_n=-\frac{\mathrm{Ry}}{n^2}.\]
+## 5. Degeneracy
+\[
+\dim\mathcal H_K(S^3)=(K+1)^2=n^2.
+\]
+This reproduces hydrogen shell degeneracy before spin/fine corrections.
 
-For the upstream closure-action derivation of why fixed central-field closure gives \(E(J)\sim -1/J^2\), see [Appendix B — Closure Geometry and the Inverse-Square Action Law](appendix_b_closure_geometry_inverse_square_action.md).
+## 6. Angular bridge
+\[
+\Pi_K^{\mathrm{ang}}:\mathcal H_K(S^3)\to\bigoplus_{\ell=0}^{K}\mathcal H_\ell(S^2),
+\]
+with \(K=n-1\), recovering \(\ell=0,\dots,n-1\) and \(m=-\ell,\dots,\ell\).
 
-## 9. Native \(S^3\) spectral energy operator
-\[H_C=-\frac{\mathrm{Ry}}{-\Delta_{S^3}+1}=-\frac{\mathrm{Ry}}{\hat N^2}.\]
-Therefore shell energies are \(E_n=-\mathrm{Ry}/n^2\).
+## 7. Validation layer
+- Reproducible shell table and angular state counts.
+- Lyman/Balmer/Paschen comparison against NIST ASD H I Lines Data.
+- Shell-locking numerical diagnostic and generated reports/tests.
 
-For the expanded derivation from Coulomb action to the native \(S^3\) spectral energy operator, see [Appendix A — From Coulomb Action to the S³ Spectral Hydrogen Operator](appendix_coulomb_action_to_s3_operator.md).
+Reference wavelengths are sourced from NIST ASD H I Lines Data for the current Lyman/Balmer/Paschen subset, with explicit air/vacuum medium metadata and access-date provenance. Future work may add uncertainty columns, exact level labels, and broader line coverage.
 
-## 10. Degeneracy
-\[\dim\mathcal H_K(S^3)=(K+1)^2=n^2.\]
-This reproduces the hydrogen shell degeneracy before spin/fine corrections.
+## 8. Support and validation layers
+The following are support/diagnostic layers and not the core first-read statement:
+- projected central flux hypothesis (Appendix C),
+- Coulomb action relation and closure-action support (Appendices A/B),
+- fine-structure benchmark,
+- numerical shell-locking finite-difference model details.
 
-## 11. Angular projection into \((\ell,m)\) states
-\[\mathcal H_{n-1}(S^3)\to\bigoplus_{\ell=0}^{n-1}\mathcal H_\ell(S^2),\]
-with \(m=-\ell,\ldots,\ell\). This recovers \(\ell=0,\ldots,n-1\).
-
-## 12. Electric-dipole transition rules
-\[\Delta\ell=\pm1,\qquad \Delta m=0,\pm1.\]
-Bridge transition channels are explicitly enumerated in the simulator.
-
-## 13. Fine-structure benchmark
-\[E_{n,j}=-\frac{\mathrm{Ry}}{n^2}+\frac{m_ec^2\alpha^4}{2n^3}\left[\frac{3}{4n}-\frac{1}{j+1/2}\right].\]
-The H-alpha multiplet is generated by allowed \((\Delta\ell,\Delta j)\) channels and reported in nm.
-
-## 14. Numerical shell-locking validation
-For each \(K\), v1 solves
-\[H_K=-\eta\frac{d^2}{ds^2}+V_K(s),\]
-\[V_K(s)=\beta\sin^2\!\left(\pi s^2/2\right)+\gamma\left(K+1-s^2/2\right)^2,\]
-with finite differences and `numpy.linalg.eigh`. The primary diagnostic is
-\(\langle s^2/2\rangle\approx K+1\) with small sector errors.
-
-## 15. Falsifiability checklist
-Hydrogen Bridge v1 is considered successful only if reproducible outputs include:
-1. shell table \((n,K,s^2,s,n^2,E_n)\),
-2. angular-state counts \(n^2\),
-3. dipole-allowed angular channels,
-4. Lyman/Balmer/Paschen comparison tables,
-5. finite-difference shell-locking rows with small locking error,
-6. H-alpha fine-structure components from selection rules.
-
-See also `notes/layer_separation.md` for benchmark-vs-native scope boundaries.
-
-## 16. Limitations and next work
-- v1 is calibrated on \(\mathrm{Ry}\); it does not claim independent determination of the Rydberg constant.
-- Present scope excludes heavier elements.
-- Reference wavelengths are hardcoded benchmark values for software validation; future work should replace them with a cited, versioned reference dataset and consistently distinguish air vs vacuum wavelengths.
-- Next steps: stronger uncertainty quantification, spin-coupled extensions, and richer comparison
-  tables while preserving the same falsifiable bridge architecture.
-- Future work should test how far the closure-action derivation can be upgraded from semiclassical support to a fully native operator derivation.
-- Upgrade the Hopf-projected flux scaling support into a fuller quaternionic connection/curvature model for electromagnetic coupling.
-- Derive or constrain \(\kappa\) rather than treating it as a standard coupling input.
+For layer ordering and suppression guidance, see `notes/layer_separation.md`.

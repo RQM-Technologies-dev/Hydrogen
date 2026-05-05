@@ -2,7 +2,7 @@
 
 ## 1. Motivation: why the \(s^{-4}\) term looked inserted
 
-For the clean standalone spectral equation, see `notes/native_s3_spectral_hydrogen_equation.md`.
+For the clean standalone S^3 spectral equation, see `notes/native_s3_spectral_hydrogen_equation.md`. This appendix explains one calibrated action-law route to that operator and should be read as supporting derivation, not the core first-read statement.
 
 The term
 
@@ -190,7 +190,7 @@ Since \(n_i = K_i+1\), \(n_f = K_f+1\):
 Selection rules remain projection rules:
 \(\Delta \ell = \pm 1\), \(\Delta m = 0,\pm 1\).
 
-## 9. Optional modeling Hamiltonian summary
+## 9. Optional modeling scaffold
 
 \[
 H_{\mathrm{RQM-H}}
