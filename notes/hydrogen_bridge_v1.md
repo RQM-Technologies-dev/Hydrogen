@@ -46,6 +46,8 @@ with \(K=n-1\), recovering \(\ell=0,\dots,n-1\) and \(m=-\ell,\dots,\ell\).
 
 Reference wavelengths are sourced from NIST ASD H I Lines Data for the current Lyman/Balmer/Paschen subset, with explicit air/vacuum medium metadata and access-date provenance. Future work may add uncertainty columns, exact level labels, and broader line coverage.
 
+The comparison is a benchmark sanity check for the calibrated shell-energy law, not a claim of precision spectroscopy.
+
 ## 8. Support and validation layers
 The following are support/diagnostic layers and not the core first-read statement:
 - projected central flux hypothesis (Appendix C),

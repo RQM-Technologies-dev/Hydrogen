@@ -3,6 +3,9 @@
 ## Core claim
 Hydrogen Bridge v1 is a calibrated spectral-geometric bridge: hydrogen shell architecture is represented by scalar harmonics on \(S^3\), with one shell number controlling principal shell index, degeneracy, and calibrated energy denominator.
 
+## Interpretation
+In this bridge, hydrogen's known shell architecture can be read as a projected S^3 / 4D resonance structure: one compact shell resonance controls the observable principal shell number, pre-spin degeneracy, and calibrated energy denominator.
+
 ## Clean equation
 \[
 -\Delta_{S^3}Y_K=K(K+2)Y_K,\quad

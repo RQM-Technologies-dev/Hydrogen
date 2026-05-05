@@ -50,6 +50,8 @@ Hydrogen Bridge v1 proposes that the bound-state shell architecture of hydrogen 
 
 This note is the public anchor for the repository's scalar harmonic shell architecture and spectral representation framing. It captures the exact shell index map and degeneracy structure used by the simulator and documentation, while keeping the calibrated energy-scale boundary explicit.
 
+The resonance interpretation is that each hydrogen shell corresponds to a compact S^3 scalar-harmonic resonance. Ordinary hydrogen labels (n, ell, m) are then read as projected labels of that higher-dimensional shell architecture.
+
 ## Honesty boundary
 
 - This is a calibrated spectral-geometric bridge.

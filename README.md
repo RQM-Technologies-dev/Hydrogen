@@ -23,6 +23,8 @@ H_C = -\frac{\mathrm{Ry}}{-\Delta_{S^3}+1},\qquad H_C\Psi=E\Psi,\qquad E_n=-\fra
 \]
 
 ## Why this matters
+Interpreted geometrically, Hydrogen Bridge v1 treats the observed hydrogen shell architecture as the 3D/angular projection of an S^3 resonance shell.
+
 - The ordinary hydrogen shell number appears as an S^3 spectral shell number.
 - The same shell number controls both the energy denominator and the pre-spin shell degeneracy.
 - The clean operator \(H_C=-\mathrm{Ry}/(-\Delta_{S^3}+1)\) is much simpler than the optional modeling stack.
