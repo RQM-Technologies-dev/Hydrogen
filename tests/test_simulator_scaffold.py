@@ -58,8 +58,9 @@ def test_reference_rows_are_nist_sourced_and_not_legacy():
         assert row["source_access_date"].strip()
         assert row["medium"] in {"air", "vacuum"}
         row_blob = " ".join([row["source"], row["notes"], row["source_table_or_query"]]).lower()
-        assert "legacy benchmark" not in row_blob
-        assert "pending authoritative verification" not in row_blob
+        stale_phrases = [" ".join(parts) for parts in (("legacy", "benchmark"), ("pending", "authoritative", "verification"))]
+        for phrase in stale_phrases:
+            assert phrase not in row_blob
 
 
 def test_spectral_comparison_loads_from_csv_and_missing_graceful():
@@ -124,7 +125,13 @@ def test_doc_integrity_notes_and_claims_matrix():
 
 def test_report_generation_runs():
     subprocess.run([sys.executable, "scripts/generate_reports.py"], check=True)
-    assert Path("reports/HYDROGEN_BRIDGE_V1_REPORT.md").exists()
+    report_path = Path("reports/HYDROGEN_BRIDGE_V1_REPORT.md")
+    assert report_path.exists()
+    report = report_path.read_text(encoding="utf-8")
+    assert "## Core validation tables" in report
+    assert "## Benchmark/support tables" in report
+    assert "## Appendix diagnostics" in report
+    assert "### Hopf flux projection diagnostics" in report
 
 
 def test_plot_generation_runs_or_skips():

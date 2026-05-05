@@ -13,7 +13,7 @@ def test_anchor_note_exists_and_contains_required_phrases():
 
 def test_claims_matrix_contains_public_anchor_claim():
     text = Path("docs/claims_matrix.md").read_text(encoding="utf-8")
-    assert "Hydrogen bound-state shell architecture is naturally represented by scalar harmonics on S³" in text
+    assert "Hydrogen shell architecture on S³" in text
 
 
 def test_readme_contains_central_public_claim_section():

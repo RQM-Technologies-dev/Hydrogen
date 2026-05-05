@@ -57,17 +57,19 @@ H_C = -\frac{\mathrm{Ry}}{-\Delta_{S^3}+1},\qquad H_C\Psi=E\Psi,\qquad E_n=-\fra
 - no complete physical unitary \(\Pi_K\) operator yet
 
 ## Start here
-1. `notes/s3_scalar_harmonic_shell_architecture.md`
-2. `notes/native_s3_spectral_hydrogen_equation.md`
-3. `notes/pi_k_angular_intertwiner.md`
-4. `docs/claims_matrix.md`
-5. `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
+1. `docs/director_summary.md`
+2. `notes/s3_scalar_harmonic_shell_architecture.md`
+3. `notes/native_s3_spectral_hydrogen_equation.md`
+4. `notes/pi_k_angular_intertwiner.md`
+5. `docs/claims_matrix.md`
+6. `reports/HYDROGEN_BRIDGE_V1_REPORT.md`
 
 For appendices and support layers, see `notes/layer_separation.md`.
 
 ## Reviewer map
 
 ### Core reviewer path
+- `docs/director_summary.md`
 - `notes/s3_scalar_harmonic_shell_architecture.md`
 - `notes/native_s3_spectral_hydrogen_equation.md`
 - `notes/pi_k_angular_intertwiner.md`
