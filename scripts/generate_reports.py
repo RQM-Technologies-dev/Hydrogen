@@ -8,6 +8,7 @@ if str(ROOT) not in sys.path:
 
 from simulator.fine_structure import h_alpha_components
 from simulator.hopf_flux_projection import flux_scaling_diagnostics, projection_statistics
+from simulator.angular_operators import l2_compatibility_diagnostics, rank1_transition_diagnostics
 from simulator.hydrogen_shell_simulator import angular_states, shell_table
 from simulator.shell_locking_test import run_shell_locking_test
 from simulator.s3_s2_intertwiner import lz_compatibility_diagnostics, pi_k_orthonormality_diagnostics
@@ -53,9 +54,11 @@ def main() -> None:
     hopf_stats = [projection_statistics(count=10000, seed=0)]
     hopf_flux = flux_scaling_diagnostics()
     pi_k_rows = []
+    l2_rows = []
     for K in range(6):
         ortho = pi_k_orthonormality_diagnostics(K)
         lz = lz_compatibility_diagnostics(K)
+        l2 = l2_compatibility_diagnostics(K)
         pi_k_rows.append(
             {
                 "K": K,
@@ -65,6 +68,17 @@ def main() -> None:
                 "lz_mismatch_error": lz["max_mismatch_abs"],
             }
         )
+        l2_rows.append(
+            {
+                "K": K,
+                "dimension": l2["dimension"],
+                "l2_intertwining_error": l2["l2_intertwining_error"],
+                "l2_source_symmetry_error": l2["l2_source_symmetry_error"],
+            }
+        )
+    rank1_rows = []
+    for K_i, K_f in [(2, 1), (3, 2), (4, 3)]:
+        rank1_rows.extend(rank1_transition_diagnostics(K_i, K_f))
 
     write_csv(REPORTS_DIR / "shell_table.csv", shell_rows)
     write_csv(REPORTS_DIR / "angular_state_counts.csv", angular_counts)
@@ -74,6 +88,8 @@ def main() -> None:
     write_csv(REPORTS_DIR / "hopf_projection_statistics.csv", hopf_stats)
     write_csv(REPORTS_DIR / "hopf_flux_scaling.csv", hopf_flux["rows"])
     write_csv(REPORTS_DIR / "pi_k_ang_diagnostics.csv", pi_k_rows)
+    write_csv(REPORTS_DIR / "pi_k_l2_diagnostics.csv", l2_rows)
+    write_csv(REPORTS_DIR / "rank1_transition_diagnostics.csv", rank1_rows)
 
     plots = sorted([p.name for p in PLOTS_DIR.glob("*.png")]) if PLOTS_DIR.exists() else []
     plot_note = [f"- `{name}`" for name in plots] if plots else ["Plots not found. Run `python scripts/generate_plots.py` to generate `reports/plots/*.png`."]
@@ -113,6 +129,13 @@ def main() -> None:
         "",
         "### 5. Π_K^ang low-K diagnostics",
         *to_markdown_table(pi_k_rows, ["K", "dimension", "row_orthonormality_error", "column_orthonormality_error", "lz_mismatch_error"]),
+        "",
+        "### Π_K^ang L² compatibility diagnostics",
+        *to_markdown_table(l2_rows, ["K", "dimension", "l2_intertwining_error", "l2_source_symmetry_error"]),
+        "",
+        "### Rank-1 angular transition operator diagnostics",
+        "The rank-1 operator here is angular-only and normalized for compatibility testing; it does not include radial matrix elements or oscillator strengths.",
+        *to_markdown_table(rank1_rows, ["K_i", "K_f", "q", "target_nonzero_count", "s3_nonzero_count", "intertwining_error"]),
         "",
         "## Benchmark/support tables",
         "",

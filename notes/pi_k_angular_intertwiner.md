@@ -181,11 +181,14 @@ Status: **Low-K numerical construction implemented** (Gate 1).
 - Numerical Clebsch-Gordan coupling implemented with doubled quantum numbers and Condon-Shortley convention.
 - Π_K^ang matrix orthonormality validated numerically (row/column checks near machine precision).
 - L_z label compatibility validated under the dual convention m_source=a-b.
+- L^2 compatibility implemented via pulled-back source Casimir \(L^2_{\text{source}}=P^\top L^2_{\text{target}}P\) with machine-precision intertwining diagnostics.
 - Dipole compatibility validated at label level against existing hydrogen channel enumeration.
+- Angular-only rank-1 transition operator implemented on target side and pulled back to S^3 with low-K intertwining diagnostics.
 
 Remaining work:
-- Full L^2 operator-compatibility diagnostics (if not yet enabled as automated check).
-- Native rank-1 S^3 transition operator construction (beyond label-level compatibility).
+- Explicit source-side generator construction \(L_x,L_y,L_z\) as an independent Casimir build (beyond pulled-back baseline).
+- Native physical transition operator beyond the angular-only pulled-back skeleton.
+- Radial amplitudes and oscillator strengths.
 - Higher-K stability and conditioning analysis.
 
 Honesty boundary: this is a validated low-K numerical bridge construction, not yet a full physical unitary projection/intertwiner for all K.

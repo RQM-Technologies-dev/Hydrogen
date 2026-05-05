@@ -40,6 +40,6 @@ E_n=-\frac{\mathrm{Ry}}{n^2}
 The bridge yields a compact, falsifiable architecture where shell number, degeneracy, and calibrated energy denominator are unified by a single shifted \(S^3\) Laplacian structure, with executable evidence and explicit honesty boundaries.
 
 ## Next technical milestones
-1. Extend low-K \(\Pi_K^{\mathrm{ang}}\) construction to full angular-momentum operator tests and rank-1 transition operators.
+1. Extend angular operator bridge beyond hydrogen labels: radial amplitudes, oscillator strengths, and higher-K stability.
 2. Expanded NIST ASD coverage with uncertainties and exact level labels.
 3. Robustness scans for shell-locking diagnostics and tighter uncertainty reporting.
