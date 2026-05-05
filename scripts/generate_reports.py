@@ -10,6 +10,7 @@ from simulator.fine_structure import h_alpha_components
 from simulator.hopf_flux_projection import flux_scaling_diagnostics, projection_statistics
 from simulator.hydrogen_shell_simulator import angular_states, shell_table
 from simulator.shell_locking_test import run_shell_locking_test
+from simulator.s3_s2_intertwiner import lz_compatibility_diagnostics, pi_k_orthonormality_diagnostics
 from simulator.spectral_comparison import REFERENCE_DATA_PATH, all_series_tables
 
 REPORTS_DIR = Path("reports")
@@ -51,6 +52,19 @@ def main() -> None:
     h_alpha_rows = h_alpha_components()
     hopf_stats = [projection_statistics(count=10000, seed=0)]
     hopf_flux = flux_scaling_diagnostics()
+    pi_k_rows = []
+    for K in range(6):
+        ortho = pi_k_orthonormality_diagnostics(K)
+        lz = lz_compatibility_diagnostics(K)
+        pi_k_rows.append(
+            {
+                "K": K,
+                "dimension": ortho["dimension"],
+                "row_orthonormality_error": ortho["row_orthonormality_error"],
+                "column_orthonormality_error": ortho["column_orthonormality_error"],
+                "lz_mismatch_error": lz["max_mismatch_abs"],
+            }
+        )
 
     write_csv(REPORTS_DIR / "shell_table.csv", shell_rows)
     write_csv(REPORTS_DIR / "angular_state_counts.csv", angular_counts)
@@ -59,6 +73,7 @@ def main() -> None:
     write_csv(REPORTS_DIR / "h_alpha_fine_structure.csv", h_alpha_rows)
     write_csv(REPORTS_DIR / "hopf_projection_statistics.csv", hopf_stats)
     write_csv(REPORTS_DIR / "hopf_flux_scaling.csv", hopf_flux["rows"])
+    write_csv(REPORTS_DIR / "pi_k_ang_diagnostics.csv", pi_k_rows)
 
     plots = sorted([p.name for p in PLOTS_DIR.glob("*.png")]) if PLOTS_DIR.exists() else []
     plot_note = [f"- `{name}`" for name in plots] if plots else ["Plots not found. Run `python scripts/generate_plots.py` to generate `reports/plots/*.png`."]
@@ -95,6 +110,9 @@ def main() -> None:
         "",
         "### 4. Shell-locking validation table",
         *to_markdown_table(locking_rows, ["K", "target_x", "expectation_x", "error", "variance_x", "eigenvalue_0"]),
+        "",
+        "### 5. Π_K^ang low-K diagnostics",
+        *to_markdown_table(pi_k_rows, ["K", "dimension", "row_orthonormality_error", "column_orthonormality_error", "lz_mismatch_error"]),
         "",
         "## Benchmark/support tables",
         "",

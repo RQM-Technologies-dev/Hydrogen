@@ -27,7 +27,7 @@ E_n=-\frac{\mathrm{Ry}}{n^2}
 ## What is implemented / executable validation
 - Core S^3 shell spectrum and shell-number operator mapping.
 - Shell table/energy helpers and \(n^2\) counting checks.
-- Symbolic/operator-target angular bridge \(\Pi_K^{\mathrm{ang}}\).
+- Low-K numerical angular bridge \(\Pi_K^{\mathrm{ang}}\) with orthonormality and label-compatibility diagnostics.
 - NIST ASD line-comparison, shell-locking diagnostics, tests, and generated report artifacts.
 
 ## Explicit non-claims
@@ -40,6 +40,6 @@ E_n=-\frac{\mathrm{Ry}}{n^2}
 The bridge yields a compact, falsifiable architecture where shell number, degeneracy, and calibrated energy denominator are unified by a single shifted \(S^3\) Laplacian structure, with executable evidence and explicit honesty boundaries.
 
 ## Next technical milestones
-1. Numerical low-\(K\) construction/tests for \(\Pi_K^{\mathrm{ang}}\) basis normalization and angular-label compatibility.
+1. Extend low-K \(\Pi_K^{\mathrm{ang}}\) construction to full angular-momentum operator tests and rank-1 transition operators.
 2. Expanded NIST ASD coverage with uncertainties and exact level labels.
 3. Robustness scans for shell-locking diagnostics and tighter uncertainty reporting.

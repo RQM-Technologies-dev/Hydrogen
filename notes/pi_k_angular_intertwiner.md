@@ -171,3 +171,21 @@ It does **not** derive:
 - fine structure,
 - the Rydberg constant,
 - or the full Schrödinger-Coulomb solution.
+
+
+## Numerical validation status
+
+Status: **Low-K numerical construction implemented** (Gate 1).
+
+- K range tested: K=0..5.
+- Numerical Clebsch-Gordan coupling implemented with doubled quantum numbers and Condon-Shortley convention.
+- Π_K^ang matrix orthonormality validated numerically (row/column checks near machine precision).
+- L_z label compatibility validated under the dual convention m_source=a-b.
+- Dipole compatibility validated at label level against existing hydrogen channel enumeration.
+
+Remaining work:
+- Full L^2 operator-compatibility diagnostics (if not yet enabled as automated check).
+- Native rank-1 S^3 transition operator construction (beyond label-level compatibility).
+- Higher-K stability and conditioning analysis.
+
+Honesty boundary: this is a validated low-K numerical bridge construction, not yet a full physical unitary projection/intertwiner for all K.

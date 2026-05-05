@@ -71,6 +71,16 @@ The wavelength comparison is a benchmark sanity check for the calibrated shell-e
 | 4 | 5.000000 | 4.999185 | -0.000815 | 0.008909 | 11.338442 |
 | 5 | 6.000000 | 5.999261 | -0.000739 | 0.009793 | 12.366492 |
 
+### 5. Π_K^ang low-K diagnostics
+| K | dimension | row_orthonormality_error | column_orthonormality_error | lz_mismatch_error |
+| --- | --- | --- | --- | --- |
+| 0 | 1 | 0.000000 | 0.000000 | 0.000000 |
+| 1 | 4 | 0.000000 | 0.000000 | 0.000000 |
+| 2 | 9 | 0.000000 | 0.000000 | 0.000000 |
+| 3 | 16 | 0.000000 | 0.000000 | 0.000000 |
+| 4 | 25 | 0.000000 | 0.000000 | 0.000000 |
+| 5 | 36 | 0.000000 | 0.000000 | 0.000000 |
+
 ## Benchmark/support tables
 
 ### H-alpha fine-structure benchmark
