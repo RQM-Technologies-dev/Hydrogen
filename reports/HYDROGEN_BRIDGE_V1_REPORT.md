@@ -81,6 +81,30 @@ The wavelength comparison is a benchmark sanity check for the calibrated shell-e
 | 4 | 25 | 0.000000 | 0.000000 | 0.000000 |
 | 5 | 36 | 0.000000 | 0.000000 | 0.000000 |
 
+### Π_K^ang L² compatibility diagnostics
+| K | dimension | l2_intertwining_error | l2_source_symmetry_error |
+| --- | --- | --- | --- |
+| 0 | 1 | 0.000000 | 0.000000 |
+| 1 | 4 | 0.000000 | 0.000000 |
+| 2 | 9 | 0.000000 | 0.000000 |
+| 3 | 16 | 0.000000 | 0.000000 |
+| 4 | 25 | 0.000000 | 0.000000 |
+| 5 | 36 | 0.000000 | 0.000000 |
+
+### Rank-1 angular transition operator diagnostics
+The rank-1 operator here is angular-only and normalized for compatibility testing; it does not include radial matrix elements or oscillator strengths.
+| K_i | K_f | q | target_nonzero_count | s3_nonzero_count | intertwining_error |
+| --- | --- | --- | --- | --- | --- |
+| 2 | 1 | -1 | 5 | 8 | 0.000000 |
+| 2 | 1 | 0 | 5 | 10 | 0.000000 |
+| 2 | 1 | 1 | 5 | 8 | 0.000000 |
+| 3 | 2 | -1 | 13 | 25 | 0.000000 |
+| 3 | 2 | 0 | 13 | 28 | 0.000000 |
+| 3 | 2 | 1 | 13 | 25 | 0.000000 |
+| 4 | 3 | -1 | 25 | 56 | 0.000000 |
+| 4 | 3 | 0 | 25 | 60 | 0.000000 |
+| 4 | 3 | 1 | 25 | 56 | 0.000000 |
+
 ## Benchmark/support tables
 
 ### H-alpha fine-structure benchmark

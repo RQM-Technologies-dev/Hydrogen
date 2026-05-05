@@ -43,6 +43,7 @@ Interpreted geometrically, Hydrogen Bridge v1 treats the observed hydrogen shell
 ### Validation
 - NIST ASD spectral comparison (`simulator/spectral_comparison.py`, `data/hydrogen_reference_lines.csv`)
 - shell-locking numerical diagnostic (`simulator/shell_locking_test.py`)
+- \(\Pi_K^{\mathrm{ang}}\) L² compatibility diagnostics and rank-1 angular transition-operator diagnostics (`simulator/angular_operators.py`, `reports/pi_k_l2_diagnostics.csv`, `reports/rank1_transition_diagnostics.csv`)
 - report generation (`scripts/generate_reports.py`)
 - tests/CI (`tests/`, `.github/workflows/ci.yml`)
 
