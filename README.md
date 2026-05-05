@@ -67,6 +67,7 @@ Generated artifacts under `reports/` are produced locally and may not be committ
 
 - `notes/hydrogen_bridge_v1.md`
 - `notes/s3_scalar_harmonic_shell_architecture.md` — public-facing anchor note for hydrogen shell architecture as scalar harmonics on S³.
+- `notes/native_s3_spectral_hydrogen_equation.md`
 - `notes/appendix_coulomb_action_to_s3_operator.md`
 - `notes/angular_projection_s3_to_s2.md`
 - `docs/math_references.md`

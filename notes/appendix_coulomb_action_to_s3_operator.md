@@ -2,6 +2,8 @@
 
 ## 1. Motivation: why the \(s^{-4}\) term looked inserted
 
+For the clean standalone spectral equation, see `notes/native_s3_spectral_hydrogen_equation.md`.
+
 The term
 
 \[
@@ -188,7 +190,7 @@ Since \(n_i = K_i+1\), \(n_f = K_f+1\):
 Selection rules remain projection rules:
 \(\Delta \ell = \pm 1\), \(\Delta m = 0,\pm 1\).
 
-## 9. Revised Hamiltonian summary
+## 9. Optional modeling Hamiltonian summary
 
 \[
 H_{\mathrm{RQM-H}}
@@ -225,5 +227,7 @@ H_{\mathrm{FS}}
 =
 H_{\mathrm{rel}} + H_{\mathrm{SO}} + H_D.
 \]
+
+Section 9 is an optional modeling summary; the clean spectral core is \(H_C=-\mathrm{Ry}/(-\Delta_{S^3}+1)\).
 
 Final caution: Hydrogen Bridge v1 uses \(\mathrm{Ry}\) as a calibration constant and does not claim an independent first-principles derivation of the Rydberg constant. The emphasis is numerical validation under the shell-locking condition within a calibrated bridge.
