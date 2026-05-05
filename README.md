@@ -37,7 +37,7 @@ Interpreted geometrically, Hydrogen Bridge v1 treats the observed hydrogen shell
 - clean S^3 spectral equation (`notes/native_s3_spectral_hydrogen_equation.md`)
 - S^3 scalar harmonic shell architecture (`notes/s3_scalar_harmonic_shell_architecture.md`)
 - shell table and energy helper (`simulator/hydrogen_shell_simulator.py`)
-- \(\Pi_K^{\mathrm{ang}}\) symbolic angular bridge (`notes/pi_k_angular_intertwiner.md`)
+- low-K numerical \(\Pi_K^{\mathrm{ang}}\) angular bridge and diagnostics (`notes/pi_k_angular_intertwiner.md`, `simulator/s3_s2_intertwiner.py`)
 - claims matrix (`docs/claims_matrix.md`)
 
 ### Validation
