@@ -2,6 +2,12 @@
 
 # Hydrogen Bridge v1
 
+## Better Coordinates for Better Measurement
+
+This project uses quaternions because they preserve more of what physical systems are doing: phase, rotation, orientation, polarization, and coherence. Standard complex-number methods are powerful, but they can flatten these relationships too early. Quaternionic coordinates keep them together as one structured object, giving software a richer view of the measured system.
+
+For RQM Technologies, better coordinates mean better measurement: more informative diagnostics, cleaner transformations, and more precise control across quantum, wave, sensing, imaging, and communications workflows.
+
 ## One-sentence claim
 Hydrogen Bridge v1 shows that hydrogen shell architecture can be represented cleanly by scalar harmonics on S^3, with the shifted S^3 Laplacian producing the principal shell number, n^2 degeneracy, and the calibrated Rydberg energy denominator.
 
